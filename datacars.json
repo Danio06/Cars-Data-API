@@ -1,0 +1,183 @@
+{
+    "BMW": {
+        "3_series": {
+            "E21": {
+                "engines": {
+                    "petrol": [
+                        {"model": "315", "engine": "M10B16", "power": 75},
+                        {"model": "316", "engine": "M10B18", "power": 90},
+                        {"model": "318", "engine": "M10B18", "power": 98},
+                        {"model": "318i", "engine": "M10B18", "power": 105},
+                        {"model": "320", "engine": "M10B20", "power": 109},
+                        {"model": "320/6", "engine": "M20B20", "power": 122},
+                        {"model": "320i", "engine": "M10B20", "power": 125},
+                        {"model": "323i", "engine": "M20B23", "power": 143}
+                    ]
+                },
+                "transmission": {
+                    "manual": [
+                        {"speeds": 4, "type": "Getrag 242"},
+                        {"speeds": 5, "type": "Getrag 245 (Eco/Dogleg)"}
+                    ],
+                    "automatic": [{"speeds": 3, "type": "ZF 3HP22"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "323i", "reason": "Iconic inline-six, great performance with simple, reliable construction"},
+                    "diesel": "None"
+                }
+            },
+            "E30": {
+                "engines": {
+                    "petrol": [
+                        {"model": "316", "engine": "M10B18", "power": 90},
+                        {"model": "316i", "engine": "M40B16", "power": 100},
+                        {"model": "318i", "engine": "M40B18", "power": 113},
+                        {"model": "318is", "engine": "M42B18", "power": 136},
+                        {"model": "320i", "engine": "M20B20", "power": 129},
+                        {"model": "325i", "engine": "M20B25", "power": 170},
+                        {"model": "325ix", "engine": "M20B25", "power": 170},
+                        {"model": "M3", "engine": "S14B23", "power": 200}
+                    ],
+                    "diesel": [
+                        {"model": "324d", "engine": "M21D24", "power": 86},
+                        {"model": "324td", "engine": "M21D24T", "power": 115}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 5, "type": "Getrag 240/260"}],
+                    "automatic": [{"speeds": 4, "type": "ZF 4HP22"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "325i", "reason": "M20B25 is bulletproof, offers excellent sound and power-to-weight ratio"},
+                    "diesel": {"model": "324td", "reason": "Reliable M21 engine, the best diesel performance for this era"}
+                }
+            },
+            "E36": {
+                "engines": {
+                    "petrol": [
+                        {"model": "316i", "engine": "M43B16", "power": 102},
+                        {"model": "318is", "engine": "M44B19", "power": 140},
+                        {"model": "320i", "engine": "M52B20", "power": 150},
+                        {"model": "323i", "engine": "M52B25", "power": 170},
+                        {"model": "325i", "engine": "M50B25", "power": 192},
+                        {"model": "328i", "engine": "M52B28", "power": 193},
+                        {"model": "M3 3.0", "engine": "S50B30", "power": 286},
+                        {"model": "M3 3.2", "engine": "S50B32", "power": 321}
+                    ],
+                    "diesel": [
+                        {"model": "318tds", "engine": "M41D17", "power": 90},
+                        {"model": "325td", "engine": "M51D25", "power": 115},
+                        {"model": "325tds", "engine": "M51D25TU", "power": 143}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 5, "type": "Getrag 220"}, {"speeds": 6, "type": "Getrag 226 (M3)"}],
+                    "automatic": [{"speeds": 5, "type": "ZF 5HP18"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "328i", "reason": "M52 engine provides the best balance of torque, power, and long-term durability"},
+                    "diesel": {"model": "325tds", "reason": "Great power potential, very durable if the cooling system is maintained"}
+                }
+            },
+            "E46": {
+                "engines": {
+                    "petrol": [
+                        {"model": "318i", "engine": "N42B20", "power": 143},
+                        {"model": "320i", "engine": "M54B22", "power": 170},
+                        {"model": "325i", "engine": "M54B25", "power": 192},
+                        {"model": "330i", "engine": "M54B30", "power": 231},
+                        {"model": "M3", "engine": "S54B32", "power": 343}
+                    ],
+                    "diesel": [
+                        {"model": "320d", "engine": "M47D20", "power": 150},
+                        {"model": "330d", "engine": "M57D30", "power": 204}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 5, "type": "Getrag 250"}, {"speeds": 6, "type": "ZF GS6-37"}],
+                    "automatic": [{"speeds": 5, "type": "ZF 5HP19"}],
+                    "automated": [{"speeds": 6, "type": "SMG II"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "330i", "reason": "M54B30 is a legend, incredibly smooth and one of the most reliable R6 engines"},
+                    "diesel": {"model": "330d", "reason": "M57 is a world-class diesel, famous for reaching 500k+ km with massive torque"}
+                }
+            },
+            "E90": {
+                "engines": {
+                    "petrol": [
+                        {"model": "320i", "engine": "N43B20", "power": 170},
+                        {"model": "325i", "engine": "N52B25", "power": 218},
+                        {"model": "330i", "engine": "N53B30", "power": 272},
+                        {"model": "335i", "engine": "N54B30", "power": 306},
+                        {"model": "M3", "engine": "S65B40", "power": 420}
+                    ],
+                    "diesel": [
+                        {"model": "320d", "engine": "N47D20", "power": 177},
+                        {"model": "330d", "engine": "N57D30", "power": 245},
+                        {"model": "335d", "engine": "M57D30TOP", "power": 286}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "ZF GS6"}],
+                    "automatic": [{"speeds": 6, "type": "ZF 6HP21/26"}],
+                    "dual_clutch": [{"speeds": 7, "type": "DKG (M3/335i)"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "330i (N52)", "reason": "Last naturally aspirated R6 with port injection, avoiding carbon buildup issues"},
+                    "diesel": {"model": "330d (M57)", "reason": "Highly robust iron-block engine, significantly more reliable than the 2.0 N47"}
+                }
+            },
+            "F30": {
+                "engines": {
+                    "petrol": [
+                        {"model": "318i", "engine": "B38B15", "power": 136},
+                        {"model": "320i", "engine": "B48B20", "power": 184},
+                        {"model": "328i", "engine": "N20B20", "power": 245},
+                        {"model": "330i", "engine": "B48B20", "power": 252},
+                        {"model": "335i", "engine": "N55B30", "power": 306},
+                        {"model": "340i", "engine": "B58B30", "power": 326}
+                    ],
+                    "diesel": [
+                        {"model": "318d", "engine": "B47D20", "power": 150},
+                        {"model": "320d", "engine": "B47D20", "power": 190},
+                        {"model": "330d", "engine": "N57D30", "power": 258},
+                        {"model": "335d", "engine": "N57D30TOP", "power": 313}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6"}],
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP45/50"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "340i (B58)", "reason": "Modern masterpiece with huge tuning potential and superior reliability over N54/N55"},
+                    "diesel": {"model": "320d (B47)", "reason": "Fixed the timing chain issues of the previous N47, excellent fuel economy"}
+                }
+            },
+            "G20": {
+                "engines": {
+                    "petrol": [
+                        {"model": "320i", "engine": "B48B20", "power": 184},
+                        {"model": "330i", "engine": "B48B20", "power": 258},
+                        {"model": "M340i", "engine": "B58B30", "power": 374}
+                    ],
+                    "diesel": [
+                        {"model": "318d", "engine": "B47D20", "power": 150},
+                        {"model": "320d", "engine": "B47D20", "power": 190},
+                        {"model": "M340d", "engine": "B57D30", "power": 340}
+                    ],
+                    "hybrid": [
+                        {"model": "330e", "engine": "B48B20 + Electric", "power": 292}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M340i", "reason": "B58 in its best form, extreme performance combined with daily reliability"},
+                    "diesel": {"model": "330d", "reason": "B57 straight-six diesel is incredibly smooth, powerful, and efficient"}
+                }
+            }
+        }
+    }
+}
