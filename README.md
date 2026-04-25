@@ -87,9 +87,9 @@ app.py       # CLI interface (user interaction)
 
 ---
 
-## Development Progress (Iteration History)
+## ## Development Progress (Iterative & non-linear)
 
-This project was built iteratively to simulate real backend development.
+This project was developed in a non-linear way, with multiple refactors across layers, evolved iteratively as understanding of backend architecture improved over time.
 
 ### Step 1 — Monolithic script
 - Initial version was a single Python file
@@ -98,10 +98,10 @@ This project was built iteratively to simulate real backend development.
 
 
 ### Step 2 — Architecture separation
-- Split project into layers:
-  - app.py (UI)
-  - service.py (business logic)
-  - parser.py (input interpretation)
+- Introduced separation of concerns:
+  - app.py (user interface layer)
+  - service.py (business logic layer)
+  - parser.py (input interpretation layer)
   - cars.py (data layer)
   
 
