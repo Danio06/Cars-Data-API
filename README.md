@@ -1,4 +1,4 @@
-# BMW Data API (WIP)
+# Cars Data API (WIP)
 
 ## Overview
 
@@ -87,6 +87,42 @@ app.py       # CLI interface (user interaction)
 
 ---
 
+## Development Progress (Iteration History)
+
+This project was built iteratively to simulate real backend development.
+
+### Step 1 — Monolithic script
+- Initial version was a single Python file
+- Data stored as simple strings
+- No separation of logic
+
+
+### Step 2 — Architecture separation
+- Split project into layers:
+  - app.py (UI)
+  - service.py (business logic)
+  - parser.py (input interpretation)
+  - cars.py (data layer)
+  
+
+### Step 3 — Input parsing system
+- Added model detection (E21, E90, F30, etc.)
+- Added fuel detection (petrol / diesel)
+- Added intent detection ("best engine" queries)
+
+
+### Step 4 — Data restructuring
+- Converted engine data from strings → structured dictionaries
+- Introduced hierarchical model (series → generation → engines)
+
+
+### Step 5 — Ongoing improvements
+- Improving parser accuracy (handling natural language inputs)
+- Handling fallback cases (partial queries like "BMW 3 series")
+- Improving output formatting and structure
+
+---
+
 ## Project Goals
 
 This project focuses on:
@@ -95,6 +131,14 @@ This project focuses on:
 * Backend architecture (layer separation)
 * Query parsing logic (basic NLP approach)
 * Iterative development and refactoring
+
+---
+
+## Known Issues
+
+- Parser does not yet handle complex natural language queries
+- Some queries return too broad results (needs better filtering)
+- Output formatting is still CLI-based (not API yet)
 
 ---
 
