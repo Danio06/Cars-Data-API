@@ -7,16 +7,21 @@ def pretty_print(result):
         return
 
     for key, value in result.items():
+        if key == "status" and value == "ok": continue
+        
         print(f"\n{key.upper()}:")
 
         if isinstance(value, dict):
             for sub_key, sub_value in value.items():
-                print(f"  {sub_key}: {sub_value}")
-
+                if isinstance(sub_value, list):
+                    print(f"  {sub_key}:")
+                    for item in sub_value:
+                        print(f"    - {item}")
+                else:
+                    print(f"  {sub_key}: {sub_value}")
         elif isinstance(value, list):
             for item in value:
                 print(f"  - {item}")
-
         else:
             print(f"  {value}")
 
