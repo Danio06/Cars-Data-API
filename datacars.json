@@ -1,5 +1,186 @@
 {
     "BMW": {
+        "1_series": {
+            "E87": {
+                "engines": {
+                    "petrol": [
+                        {"model": "116i", "engine": "N45B16", "power": 115},
+                        {"model": "118i", "engine": "N46B20", "power": 129},
+                        {"model": "120i", "engine": "N46B20", "power": 150},
+                        {"model": "130i", "engine": "N52B30", "power": 258}
+                    ],
+                    "diesel": [
+                        {"model": "116d", "engine": "N47D20", "power": 115},
+                        {"model": "118d", "engine": "N47D20", "power": 143},
+                        {"model": "120d", "engine": "N47D20", "power": 163},
+                        {"model": "123d", "engine": "N47D20T0", "power": 204}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-17BG"}],
+                    "automatic": [{"speeds": 6, "type": "ZF 6HP19"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "130i", "reason": "N52B30 straight-six in a small body — fantastic power-to-weight, rare and rewarding to drive"},
+                    "diesel": {"model": "123d", "reason": "Twin-turbo N47 with 204hp offers exceptional performance and economy in a lightweight package"}
+                }
+            },
+            "F20": {
+                "engines": {
+                    "petrol": [
+                        {"model": "114i", "engine": "N13B16", "power": 102},
+                        {"model": "116i", "engine": "N13B16", "power": 136},
+                        {"model": "118i", "engine": "N13B20", "power": 170},
+                        {"model": "120i", "engine": "N20B20", "power": 184},
+                        {"model": "125i", "engine": "N20B20", "power": 218},
+                        {"model": "M135i", "engine": "N55B30", "power": 320},
+                        {"model": "M140i", "engine": "B58B30", "power": 340}
+                    ],
+                    "diesel": [
+                        {"model": "114d", "engine": "N47D20", "power": 95},
+                        {"model": "116d", "engine": "N47D20", "power": 116},
+                        {"model": "118d", "engine": "N47D20", "power": 143},
+                        {"model": "120d", "engine": "N47D20", "power": 184},
+                        {"model": "125d", "engine": "N47D20T0", "power": 218}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-17DG"}],
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP45"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M140i", "reason": "B58 is the most reliable and tuneable modern BMW inline-six, massive power potential"},
+                    "diesel": {"model": "125d", "reason": "Twin-turbo N47 unit with 218hp, best diesel performance in the F20 range"}
+                }
+            },
+            "F40": {
+                "engines": {
+                    "petrol": [
+                        {"model": "118i", "engine": "B38B15", "power": 140},
+                        {"model": "120i", "engine": "B48B20", "power": 178},
+                        {"model": "128ti", "engine": "B48B20", "power": 265},
+                        {"model": "M135i xDrive", "engine": "B48B20", "power": 306}
+                    ],
+                    "diesel": [
+                        {"model": "116d", "engine": "B37D15", "power": 116},
+                        {"model": "118d", "engine": "B47D20", "power": 150},
+                        {"model": "120d", "engine": "B47D20", "power": 190}
+                    ],
+                    "hybrid": [
+                        {"model": "118e", "engine": "B38B15 + Electric", "power": 140}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 7, "type": "DKG (DCT)"},
+                                  {"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M135i xDrive", "reason": "306hp B48 with xDrive — devastatingly quick for a 1 Series, great daily usability"},
+                    "diesel": {"model": "120d", "reason": "B47 is smooth, frugal, and more reliable than the old N47 chain-failure unit"}
+                }
+            }
+        },
+        "2_series": {
+            "F22": {
+                "engines": {
+                    "petrol": [
+                        {"model": "218i", "engine": "N13B16", "power": 136},
+                        {"model": "220i", "engine": "N20B20", "power": 184},
+                        {"model": "228i", "engine": "N20B20", "power": 245},
+                        {"model": "230i", "engine": "B48B20", "power": 252},
+                        {"model": "M235i", "engine": "N55B30", "power": 326},
+                        {"model": "M240i", "engine": "B58B30", "power": 340},
+                        {"model": "M2", "engine": "N55B30T0", "power": 370},
+                        {"model": "M2 Competition", "engine": "S55B30", "power": 411}
+                    ],
+                    "diesel": [
+                        {"model": "218d", "engine": "N47D20", "power": 143},
+                        {"model": "220d", "engine": "N47D20", "power": 184},
+                        {"model": "225d", "engine": "N47D20T0", "power": 218}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-45BZ"}],
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP45"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M2 Competition", "reason": "S55 from the E92 M3 — high-revving, communicative, the last truly analog BMW M car"},
+                    "diesel": {"model": "220d", "reason": "N47 in 184hp tune is the sweet spot of performance and economy for the F22"}
+                }
+            },
+            "F45": {
+                "engines": {
+                    "petrol": [
+                        {"model": "216i", "engine": "B38B15", "power": 109},
+                        {"model": "218i", "engine": "B38B15", "power": 136},
+                        {"model": "220i", "engine": "B48B20", "power": 192},
+                        {"model": "225i xDrive", "engine": "B48B20", "power": 231},
+                        {"model": "225xe", "engine": "B38B15 + Electric", "power": 224}
+                    ],
+                    "diesel": [
+                        {"model": "216d", "engine": "B37D15", "power": 116},
+                        {"model": "218d", "engine": "B47D20", "power": 150},
+                        {"model": "220d", "engine": "B47D20", "power": 190},
+                        {"model": "225d xDrive", "engine": "B47D20T0", "power": 224}
+                    ],
+                    "hybrid": [
+                        {"model": "225xe", "engine": "B38B15 + Electric", "power": 224}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 6, "type": "Aisin GA6F21WA"},
+                                  {"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "225i xDrive", "reason": "B48 in xDrive Active Tourer — practical, punchy, genuinely fast for an MPV"},
+                    "diesel": {"model": "225d xDrive", "reason": "224hp B47 twin-turbo is the most capable diesel in the F45 lineup"}
+                }
+            },
+            "G42": {
+                "engines": {
+                    "petrol": [
+                        {"model": "220i", "engine": "B48B20", "power": 184},
+                        {"model": "230i", "engine": "B48B20", "power": 245},
+                        {"model": "M240i xDrive", "engine": "B58B30", "power": 374}
+                    ],
+                    "diesel": [
+                        {"model": "220d", "engine": "B47D20", "power": 190}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M240i xDrive", "reason": "B58 with 374hp and xDrive — exceptional all-weather performance in a compact coupe"},
+                    "diesel": {"model": "220d", "reason": "Only diesel option, B47 is efficient and adequate for the platform"}
+                }
+            },
+            "U06": {
+                "engines": {
+                    "petrol": [
+                        {"model": "218i", "engine": "B38B15", "power": 136},
+                        {"model": "220i", "engine": "B48B20", "power": 170},
+                        {"model": "230e", "engine": "B38B15 + Electric", "power": 245}
+                    ],
+                    "diesel": [
+                        {"model": "218d", "engine": "B47D20", "power": 150},
+                        {"model": "220d", "engine": "B47D20", "power": 190},
+                        {"model": "223d", "engine": "B47D20", "power": 211}
+                    ],
+                    "hybrid": [
+                        {"model": "230e", "engine": "B38B15 + Electric", "power": 245}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 7, "type": "DKG (DCT)"},
+                                  {"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "230e", "reason": "PHEV with 245hp total output, best mix of efficiency and performance in U06"},
+                    "diesel": {"model": "220d", "reason": "B47 is the mature, efficient choice for this front-wheel drive platform"}
+                }
+            }
+        },
         "3_series": {
             "E21": {
                 "engines": {
@@ -22,8 +203,7 @@
                     "automatic": [{"speeds": 3, "type": "ZF 3HP22"}]
                 },
                 "best_engine": {
-                    "petrol": {"model": "323i", "reason": "Iconic inline-six, great performance with simple, reliable construction"},
-                    "diesel": "None"
+                    "petrol": {"model": "323i", "reason": "Iconic inline-six M20B23, great performance with simple and reliable construction"}
                 }
             },
             "E30": {
@@ -99,7 +279,7 @@
                     "automated": [{"speeds": 6, "type": "SMG II"}]
                 },
                 "best_engine": {
-                    "petrol": {"model": "330i", "reason": "M54B30 is a legend, incredibly smooth and one of the most reliable R6 engines"},
+                    "petrol": {"model": "330i", "reason": "M54B30 is a legend, incredibly smooth and one of the most reliable R6 engines ever made"},
                     "diesel": {"model": "330d", "reason": "M57 is a world-class diesel, famous for reaching 500k+ km with massive torque"}
                 }
             },
@@ -124,8 +304,8 @@
                     "dual_clutch": [{"speeds": 7, "type": "DKG (M3/335i)"}]
                 },
                 "best_engine": {
-                    "petrol": {"model": "330i (N52)", "reason": "Last naturally aspirated R6 with port injection, avoiding carbon buildup issues"},
-                    "diesel": {"model": "330d (M57)", "reason": "Highly robust iron-block engine, significantly more reliable than the 2.0 N47"}
+                    "petrol": {"model": "330i (N52)", "reason": "Last naturally aspirated R6 with port injection, avoiding carbon buildup issues of the N53"},
+                    "diesel": {"model": "330d (M57)", "reason": "Highly robust iron-block engine, significantly more reliable than the chain-prone N47"}
                 }
             },
             "F30": {
@@ -175,7 +355,1308 @@
                 },
                 "best_engine": {
                     "petrol": {"model": "M340i", "reason": "B58 in its best form, extreme performance combined with daily reliability"},
-                    "diesel": {"model": "330d", "reason": "B57 straight-six diesel is incredibly smooth, powerful, and efficient"}
+                    "diesel": {"model": "M340d", "reason": "B57 straight-six diesel is incredibly smooth, powerful, and efficient"}
+                }
+            }
+        },
+        "4_series": {
+            "F32": {
+                "engines": {
+                    "petrol": [
+                        {"model": "418i", "engine": "B38B15", "power": 136},
+                        {"model": "420i", "engine": "N20B20", "power": 184},
+                        {"model": "428i", "engine": "N20B20", "power": 245},
+                        {"model": "430i", "engine": "B48B20", "power": 252},
+                        {"model": "435i", "engine": "N55B30", "power": 306},
+                        {"model": "440i", "engine": "B58B30", "power": 326},
+                        {"model": "M4", "engine": "S55B30", "power": 431},
+                        {"model": "M4 GTS", "engine": "S55B30T0", "power": 500}
+                    ],
+                    "diesel": [
+                        {"model": "418d", "engine": "B47D20", "power": 150},
+                        {"model": "420d", "engine": "B47D20", "power": 190},
+                        {"model": "425d", "engine": "N57D20", "power": 218},
+                        {"model": "430d", "engine": "N57D30", "power": 258},
+                        {"model": "435d", "engine": "N57D30TOP", "power": 313}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-45BZ"}],
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP45"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M4 (S55)", "reason": "S55 twin-turbo is a high-revving, driver-focused engine with exceptional tuning potential"},
+                    "diesel": {"model": "435d", "reason": "N57D30TOP tri-turbo diesel — 313hp with enormous torque, effortless grand tourer"}
+                }
+            },
+            "G22": {
+                "engines": {
+                    "petrol": [
+                        {"model": "420i", "engine": "B48B20", "power": 184},
+                        {"model": "430i", "engine": "B48B20", "power": 245},
+                        {"model": "440i", "engine": "B58B30", "power": 374},
+                        {"model": "M4", "engine": "S58B30", "power": 480},
+                        {"model": "M4 Competition", "engine": "S58B30", "power": 510},
+                        {"model": "M4 CSL", "engine": "S58B30", "power": 550}
+                    ],
+                    "diesel": [
+                        {"model": "420d", "engine": "B47D20", "power": 190},
+                        {"model": "430d", "engine": "B57D30", "power": 286}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-45BZ (base M4)"}],
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M4 Competition (S58)", "reason": "S58 is BMW's finest modern engine — 510hp, race-derived, and more reliable than the S55"},
+                    "diesel": {"model": "430d", "reason": "B57 inline-six diesel delivers 286hp and effortless torque in the elegant G22 body"}
+                }
+            }
+        },
+        "5_series": {
+            "E12": {
+                "engines": {
+                    "petrol": [
+                        {"model": "518", "engine": "M10B18", "power": 90},
+                        {"model": "520", "engine": "M10B20", "power": 115},
+                        {"model": "520i", "engine": "M10B20", "power": 125},
+                        {"model": "525", "engine": "M30B25", "power": 145},
+                        {"model": "528", "engine": "M30B28", "power": 165},
+                        {"model": "528i", "engine": "M30B28", "power": 176},
+                        {"model": "530i", "engine": "M30B30", "power": 188},
+                        {"model": "M535i", "engine": "M30B34", "power": 218}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 4, "type": "Getrag 262"}, {"speeds": 5, "type": "Getrag 265"}],
+                    "automatic": [{"speeds": 3, "type": "ZF 3HP22"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M535i", "reason": "M30B34 big-six with 218hp — the original M5 predecessor, torquey and charismatic"}
+                }
+            },
+            "E28": {
+                "engines": {
+                    "petrol": [
+                        {"model": "518", "engine": "M10B18", "power": 90},
+                        {"model": "518i", "engine": "M10B18", "power": 105},
+                        {"model": "520i", "engine": "M20B20", "power": 125},
+                        {"model": "524td", "engine": "M21D24T", "power": 115},
+                        {"model": "525i", "engine": "M30B25", "power": 150},
+                        {"model": "528i", "engine": "M30B28", "power": 184},
+                        {"model": "535i", "engine": "M30B34", "power": 218},
+                        {"model": "M5", "engine": "S38B35", "power": 286}
+                    ],
+                    "diesel": [
+                        {"model": "524td", "engine": "M21D24T", "power": 115}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 5, "type": "Getrag 265/5"}],
+                    "automatic": [{"speeds": 4, "type": "ZF 4HP22"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M5", "reason": "S38B35 hand-built engine — the original super saloon, still revered for its mechanical purity"},
+                    "diesel": {"model": "524td", "reason": "Only diesel option, M21 turbo diesel — groundbreaking for its era"}
+                }
+            },
+            "E34": {
+                "engines": {
+                    "petrol": [
+                        {"model": "518i", "engine": "M40B18", "power": 113},
+                        {"model": "520i", "engine": "M50B20", "power": 150},
+                        {"model": "524td", "engine": "M21D24T", "power": 115},
+                        {"model": "525i", "engine": "M50B25", "power": 192},
+                        {"model": "530i", "engine": "M60B30", "power": 218},
+                        {"model": "535i", "engine": "M30B35", "power": 211},
+                        {"model": "540i", "engine": "M60B40", "power": 286},
+                        {"model": "M5", "engine": "S38B38", "power": 340}
+                    ],
+                    "diesel": [
+                        {"model": "524td", "engine": "M21D24T", "power": 115},
+                        {"model": "525tds", "engine": "M51D25TU", "power": 143}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 5, "type": "Getrag 260/5"}, {"speeds": 6, "type": "Getrag 420G (M5)"}],
+                    "automatic": [{"speeds": 4, "type": "ZF 4HP24"}, {"speeds": 5, "type": "ZF 5HP24"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M5 (S38B38)", "reason": "340hp hand-assembled inline-six — one of the finest driver's engines BMW ever produced"},
+                    "diesel": {"model": "525tds", "reason": "M51 turbo diesel offers the best diesel refinement and performance in the E34"}
+                }
+            },
+            "E39": {
+                "engines": {
+                    "petrol": [
+                        {"model": "520i", "engine": "M52B20", "power": 150},
+                        {"model": "523i", "engine": "M52B25", "power": 170},
+                        {"model": "525i", "engine": "M54B25", "power": 192},
+                        {"model": "528i", "engine": "M52B28", "power": 193},
+                        {"model": "530i", "engine": "M54B30", "power": 231},
+                        {"model": "535i", "engine": "M62B35", "power": 235},
+                        {"model": "540i", "engine": "M62B44", "power": 286},
+                        {"model": "M5", "engine": "S62B50", "power": 400}
+                    ],
+                    "diesel": [
+                        {"model": "520d", "engine": "M47D20", "power": 136},
+                        {"model": "525d", "engine": "M57D25", "power": 163},
+                        {"model": "525tds", "engine": "M51D25TU", "power": 143},
+                        {"model": "530d", "engine": "M57D30", "power": 193}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 5, "type": "Getrag 260/5"}, {"speeds": 6, "type": "Getrag 420G (M5)"}],
+                    "automatic": [{"speeds": 5, "type": "ZF 5HP24/30"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M5 (S62B50)", "reason": "Naturally aspirated 5.0L V8 with 400hp — arguably the greatest M5 ever built"},
+                    "diesel": {"model": "530d", "reason": "M57D30 delivers class-leading diesel performance, torque, and longevity"}
+                }
+            },
+            "E60": {
+                "engines": {
+                    "petrol": [
+                        {"model": "520i", "engine": "N43B20", "power": 170},
+                        {"model": "523i", "engine": "N52B25", "power": 177},
+                        {"model": "525i", "engine": "N52B25", "power": 218},
+                        {"model": "528i", "engine": "N52B30", "power": 234},
+                        {"model": "530i", "engine": "N52B30", "power": 258},
+                        {"model": "535i", "engine": "N54B30", "power": 306},
+                        {"model": "545i", "engine": "N62B44", "power": 333},
+                        {"model": "550i", "engine": "N62B48", "power": 367},
+                        {"model": "M5", "engine": "S85B50", "power": 507}
+                    ],
+                    "diesel": [
+                        {"model": "520d", "engine": "N47D20", "power": 177},
+                        {"model": "525d", "engine": "M57D25TU", "power": 197},
+                        {"model": "530d", "engine": "M57D30TU", "power": 231},
+                        {"model": "535d", "engine": "M57D30TOP", "power": 286}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-53BZ"}],
+                    "automatic": [{"speeds": 6, "type": "ZF 6HP26"}],
+                    "automated": [{"speeds": 7, "type": "SMG III (M5)"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M5 (S85B50)", "reason": "10-cylinder 507hp screamer — unique in BMW history, extraordinary at high revs"},
+                    "diesel": {"model": "535d", "reason": "M57D30TOP tri-turbo — 286hp diesel in a 5 Series is effortlessly fast and economical"}
+                }
+            },
+            "F10": {
+                "engines": {
+                    "petrol": [
+                        {"model": "520i", "engine": "N20B20", "power": 184},
+                        {"model": "528i", "engine": "N20B20", "power": 245},
+                        {"model": "530i", "engine": "N52B30", "power": 272},
+                        {"model": "535i", "engine": "N55B30", "power": 306},
+                        {"model": "550i", "engine": "N63B44", "power": 408},
+                        {"model": "M5", "engine": "S63B44", "power": 560},
+                        {"model": "M5 Competition", "engine": "S63B44T4", "power": 600}
+                    ],
+                    "diesel": [
+                        {"model": "518d", "engine": "N47D20", "power": 143},
+                        {"model": "520d", "engine": "N47D20", "power": 184},
+                        {"model": "525d", "engine": "N57D30", "power": 218},
+                        {"model": "530d", "engine": "N57D30", "power": 258},
+                        {"model": "535d", "engine": "N57D30TOP", "power": 299}
+                    ],
+                    "hybrid": [
+                        {"model": "530e", "engine": "B48B20 + Electric", "power": 252}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-45BZ"}],
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP45/70"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M5 Competition (S63)", "reason": "Twin-turbo V8 with 600hp, brutal and refined simultaneously — the definitive F10 experience"},
+                    "diesel": {"model": "530d", "reason": "N57 in 258hp tune is the perfect balance of performance, economy, and reliability"}
+                }
+            },
+            "G30": {
+                "engines": {
+                    "petrol": [
+                        {"model": "520i", "engine": "B48B20", "power": 184},
+                        {"model": "530i", "engine": "B48B20", "power": 252},
+                        {"model": "540i", "engine": "B58B30", "power": 340},
+                        {"model": "550i", "engine": "N63B44TU3", "power": 462},
+                        {"model": "M5", "engine": "S63B44T4", "power": 600},
+                        {"model": "M5 Competition", "engine": "S63B44T4", "power": 625}
+                    ],
+                    "diesel": [
+                        {"model": "518d", "engine": "B47D20", "power": 150},
+                        {"model": "520d", "engine": "B47D20", "power": 190},
+                        {"model": "525d", "engine": "B47D20", "power": 231},
+                        {"model": "530d", "engine": "B57D30", "power": 265},
+                        {"model": "540d", "engine": "B57D30TOP", "power": 320},
+                        {"model": "M550d", "engine": "B57D30S0", "power": 400}
+                    ],
+                    "hybrid": [
+                        {"model": "530e", "engine": "B48B20 + Electric", "power": 292},
+                        {"model": "545e", "engine": "B58B30 + Electric", "power": 394}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M5 Competition", "reason": "625hp S63 twin-turbo V8 — fastest production 5 Series ever, exceptional all-weather capability"},
+                    "diesel": {"model": "M550d", "reason": "400hp quad-turbo B57 diesel — unique in the segment, astonishing performance with saloon economy"}
+                }
+            }
+        },
+        "6_series": {
+            "E24": {
+                "engines": {
+                    "petrol": [
+                        {"model": "628CSi", "engine": "M30B28", "power": 184},
+                        {"model": "630CS", "engine": "M30B30", "power": 185},
+                        {"model": "633CSi", "engine": "M30B32", "power": 197},
+                        {"model": "635CSi", "engine": "M30B34", "power": 218},
+                        {"model": "M635CSi", "engine": "S38B35", "power": 286},
+                        {"model": "L6", "engine": "M88/3", "power": 260}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 5, "type": "Getrag 265/5"}],
+                    "automatic": [{"speeds": 3, "type": "ZF 3HP22"}, {"speeds": 4, "type": "ZF 4HP22"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M635CSi", "reason": "S38B35 from the M1 — hand-built masterpiece, the pinnacle of the E24 lineup"}
+                }
+            },
+            "E63": {
+                "engines": {
+                    "petrol": [
+                        {"model": "630i", "engine": "N52B30", "power": 258},
+                        {"model": "645Ci", "engine": "N62B44", "power": 333},
+                        {"model": "650i", "engine": "N62B48", "power": 367},
+                        {"model": "M6", "engine": "S85B50", "power": 507}
+                    ],
+                    "diesel": [
+                        {"model": "635d", "engine": "M57D30TOP", "power": 286}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-53BZ"}],
+                    "automatic": [{"speeds": 6, "type": "ZF 6HP26"}],
+                    "automated": [{"speeds": 7, "type": "SMG III (M6)"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M6 (S85)", "reason": "507hp V10 at 7750rpm — an exotic, high-maintenance engine that rewards dedicated enthusiasts"},
+                    "diesel": {"model": "635d", "reason": "Only diesel, M57 tri-turbo makes the E63 a true high-speed grand tourer"}
+                }
+            },
+            "F12": {
+                "engines": {
+                    "petrol": [
+                        {"model": "640i", "engine": "N55B30", "power": 320},
+                        {"model": "650i", "engine": "N63B44TU", "power": 450},
+                        {"model": "M6", "engine": "S63B44", "power": 560},
+                        {"model": "M6 Competition", "engine": "S63B44T2", "power": 600}
+                    ],
+                    "diesel": [
+                        {"model": "640d", "engine": "N57D30TOP", "power": 313}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-53BZ"}],
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP70"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M6 Competition", "reason": "600hp S63 V8 — explosive power in a comfortable grand tourer body"},
+                    "diesel": {"model": "640d", "reason": "N57D30TOP tri-turbo 313hp diesel — long-distance grand tourer par excellence"}
+                }
+            },
+            "G32": {
+                "engines": {
+                    "petrol": [
+                        {"model": "630i", "engine": "B48B20", "power": 258},
+                        {"model": "640i", "engine": "B58B30", "power": 340}
+                    ],
+                    "diesel": [
+                        {"model": "620d", "engine": "B47D20", "power": 190},
+                        {"model": "630d", "engine": "B57D30", "power": 265},
+                        {"model": "640d", "engine": "B57D30TOP", "power": 320}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "640i", "reason": "B58 delivers 340hp in the practical GT body — the most compelling petrol 6 GT"},
+                    "diesel": {"model": "640d", "reason": "320hp B57 twin-turbo — the ultimate long-distance diesel tourer"}
+                }
+            }
+        },
+        "7_series": {
+            "E23": {
+                "engines": {
+                    "petrol": [
+                        {"model": "728", "engine": "M30B28", "power": 170},
+                        {"model": "728i", "engine": "M30B28", "power": 184},
+                        {"model": "730", "engine": "M30B30", "power": 188},
+                        {"model": "733i", "engine": "M30B32", "power": 197},
+                        {"model": "735i", "engine": "M30B34", "power": 218},
+                        {"model": "745i", "engine": "M102B32T", "power": 252}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 4, "type": "Getrag 262"}, {"speeds": 5, "type": "Getrag 265"}],
+                    "automatic": [{"speeds": 3, "type": "ZF 3HP22"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "745i", "reason": "Turbocharged M102 producing 252hp — the performance flagship of the E23 era"}
+                }
+            },
+            "E32": {
+                "engines": {
+                    "petrol": [
+                        {"model": "730i", "engine": "M30B30", "power": 188},
+                        {"model": "735i", "engine": "M30B35", "power": 211},
+                        {"model": "735iL", "engine": "M30B35", "power": 211},
+                        {"model": "740i", "engine": "M60B40", "power": 286},
+                        {"model": "740iL", "engine": "M60B40", "power": 286},
+                        {"model": "750i", "engine": "M70B50", "power": 300},
+                        {"model": "750iL", "engine": "M70B50", "power": 300}
+                    ],
+                    "diesel": [
+                        {"model": "730d", "engine": "M51D30", "power": 115}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 5, "type": "Getrag 265/5"}],
+                    "automatic": [{"speeds": 4, "type": "ZF 4HP24"}, {"speeds": 5, "type": "ZF 5HP24"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "750iL", "reason": "5.0L V12 M70 — ultimate E32 flagship, silky smooth and impressively powerful for the era"},
+                    "diesel": {"model": "730d", "reason": "Only diesel option, M51 is reliable though modest in output"}
+                }
+            },
+            "E38": {
+                "engines": {
+                    "petrol": [
+                        {"model": "728i", "engine": "M52B28", "power": 193},
+                        {"model": "730i", "engine": "M60B30", "power": 218},
+                        {"model": "735i", "engine": "M62B35", "power": 235},
+                        {"model": "740i", "engine": "M62B44", "power": 286},
+                        {"model": "740iL", "engine": "M62B44", "power": 286},
+                        {"model": "750i", "engine": "M73B54", "power": 326},
+                        {"model": "750iL", "engine": "M73B54", "power": 326}
+                    ],
+                    "diesel": [
+                        {"model": "725tds", "engine": "M51D25TU", "power": 143},
+                        {"model": "730d", "engine": "M57D30", "power": 193}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 5, "type": "Getrag 265/5"}],
+                    "automatic": [{"speeds": 5, "type": "ZF 5HP24/30"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "750iL", "reason": "M73 5.4L V12 — the most refined 7 Series engine of the era, whisper-quiet at speed"},
+                    "diesel": {"model": "730d", "reason": "M57D30 in the E38 is a revelation — torquey, smooth, and far ahead of its time"}
+                }
+            },
+            "E65": {
+                "engines": {
+                    "petrol": [
+                        {"model": "730i", "engine": "N52B30", "power": 258},
+                        {"model": "735i", "engine": "N62B36", "power": 272},
+                        {"model": "740i", "engine": "N62B40", "power": 306},
+                        {"model": "745i", "engine": "N62B44", "power": 333},
+                        {"model": "750i", "engine": "N62B48", "power": 367},
+                        {"model": "760i", "engine": "N73B60", "power": 445}
+                    ],
+                    "diesel": [
+                        {"model": "730d", "engine": "M57D30TU", "power": 231},
+                        {"model": "740d", "engine": "M67D40", "power": 258},
+                        {"model": "745d", "engine": "M67D44", "power": 300}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 6, "type": "ZF 6HP26"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "760i", "reason": "6.0L V12 N73 — 445hp of pure luxury performance, the apex of E65 engineering"},
+                    "diesel": {"model": "745d", "reason": "M67 V8 diesel with 300hp — unique in the class, combining V8 refinement with diesel economy"}
+                }
+            },
+            "F01": {
+                "engines": {
+                    "petrol": [
+                        {"model": "730i", "engine": "N52B30", "power": 258},
+                        {"model": "740i", "engine": "N55B30", "power": 326},
+                        {"model": "750i", "engine": "N63B44", "power": 408},
+                        {"model": "760i", "engine": "N74B60", "power": 544}
+                    ],
+                    "diesel": [
+                        {"model": "730d", "engine": "N57D30", "power": 245},
+                        {"model": "740d", "engine": "N57D30TOP", "power": 306},
+                        {"model": "750d", "engine": "N57D30S1", "power": 381}
+                    ],
+                    "hybrid": [
+                        {"model": "740e", "engine": "N20B20 + Electric", "power": 326}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP70"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "760i", "reason": "N74 twin-turbo V12 544hp — the ultimate F01, combining massive power with supreme refinement"},
+                    "diesel": {"model": "750d", "reason": "Quad-turbo N57 diesel with 381hp — extraordinary performance and surprising fuel economy"}
+                }
+            },
+            "G11": {
+                "engines": {
+                    "petrol": [
+                        {"model": "730i", "engine": "B48B20", "power": 258},
+                        {"model": "740i", "engine": "B58B30", "power": 340},
+                        {"model": "750i", "engine": "N63B44TU3", "power": 462},
+                        {"model": "760i", "engine": "N74B68", "power": 585},
+                        {"model": "M760i", "engine": "S68B68", "power": 600}
+                    ],
+                    "diesel": [
+                        {"model": "730d", "engine": "B57D30", "power": 265},
+                        {"model": "740d", "engine": "B57D30TOP", "power": 320},
+                        {"model": "750d", "engine": "B57D30S0", "power": 400}
+                    ],
+                    "hybrid": [
+                        {"model": "740e", "engine": "B48B20 + Electric", "power": 326},
+                        {"model": "745e", "engine": "B58B30 + Electric", "power": 394}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M760i", "reason": "S68 twin-turbo V8 600hp — M-tuned flagship 7 Series, devastatingly fast and lavishly equipped"},
+                    "diesel": {"model": "750d", "reason": "Quad-turbo B57 with 400hp — no other diesel saloon matches this combination of speed and refinement"}
+                }
+            }
+        },
+        "8_series": {
+            "E31": {
+                "engines": {
+                    "petrol": [
+                        {"model": "840Ci", "engine": "M60B40", "power": 286},
+                        {"model": "840i", "engine": "M60B40", "power": 286},
+                        {"model": "850i", "engine": "M70B50", "power": 300},
+                        {"model": "850Ci", "engine": "M73B54", "power": 326},
+                        {"model": "850CSi", "engine": "S70B56", "power": 380}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag 290"}],
+                    "automatic": [{"speeds": 4, "type": "GM 4L30-E"}, {"speeds": 5, "type": "ZF 5HP30"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "850CSi", "reason": "S70 5.6L V12 hand-built by M — 380hp, the most desirable E31 and a true collector's car"}
+                }
+            },
+            "G14": {
+                "engines": {
+                    "petrol": [
+                        {"model": "840i", "engine": "B58B30", "power": 340},
+                        {"model": "840i xDrive", "engine": "B58B30", "power": 340},
+                        {"model": "850i xDrive", "engine": "N63B44TU3", "power": 462},
+                        {"model": "M8", "engine": "S63B44T4", "power": 600},
+                        {"model": "M8 Competition", "engine": "S63B44T4", "power": 625}
+                    ],
+                    "diesel": [
+                        {"model": "840d xDrive", "engine": "B57D30TOP", "power": 320}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M8 Competition", "reason": "625hp S63 V8 in the ultimate GT body — the definitive modern BMW grand tourer"},
+                    "diesel": {"model": "840d xDrive", "reason": "320hp B57 twin-turbo diesel — surprisingly at home in the 8 Series as a long-distance cruiser"}
+                }
+            }
+        },
+        "X1": {
+            "E84": {
+                "engines": {
+                    "petrol": [
+                        {"model": "sDrive18i", "engine": "N46B20", "power": 150},
+                        {"model": "sDrive20i", "engine": "N20B20", "power": 184},
+                        {"model": "xDrive20i", "engine": "N20B20", "power": 184},
+                        {"model": "xDrive28i", "engine": "N20B20", "power": 245}
+                    ],
+                    "diesel": [
+                        {"model": "sDrive18d", "engine": "N47D20", "power": 143},
+                        {"model": "xDrive20d", "engine": "N47D20", "power": 177},
+                        {"model": "xDrive23d", "engine": "N47D20T0", "power": 204},
+                        {"model": "xDrive25d", "engine": "N47D20T0", "power": 218}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-17DG"}],
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP45"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "xDrive28i", "reason": "N20 245hp is the sweet spot for the E84 — punchy, efficient, and well-matched to the chassis"},
+                    "diesel": {"model": "xDrive25d", "reason": "Twin-turbo N47 with 218hp delivers excellent real-world economy and strong performance"}
+                }
+            },
+            "F48": {
+                "engines": {
+                    "petrol": [
+                        {"model": "sDrive18i", "engine": "B38B15", "power": 136},
+                        {"model": "xDrive20i", "engine": "B48B20", "power": 192},
+                        {"model": "xDrive25i", "engine": "B48B20", "power": 231},
+                        {"model": "xDrive28i", "engine": "B48B20", "power": 245}
+                    ],
+                    "diesel": [
+                        {"model": "sDrive16d", "engine": "B37D15", "power": 116},
+                        {"model": "sDrive18d", "engine": "B47D20", "power": 150},
+                        {"model": "xDrive20d", "engine": "B47D20", "power": 190},
+                        {"model": "xDrive25d", "engine": "B47D20T0", "power": 231}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6"}],
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "xDrive25i", "reason": "B48 in 231hp tune offers the best balance of performance and economy in the F48"},
+                    "diesel": {"model": "xDrive25d", "reason": "231hp B47 twin-turbo — fastest diesel X1, great real-world fuel consumption"}
+                }
+            },
+            "U11": {
+                "engines": {
+                    "petrol": [
+                        {"model": "sDrive18i", "engine": "B38B15", "power": 136},
+                        {"model": "xDrive20i", "engine": "B48B20", "power": 204},
+                        {"model": "xDrive23i", "engine": "B48B20", "power": 218},
+                        {"model": "M35i xDrive", "engine": "B48B20", "power": 300}
+                    ],
+                    "diesel": [
+                        {"model": "sDrive18d", "engine": "B47D20", "power": 150},
+                        {"model": "xDrive20d", "engine": "B47D20", "power": 163},
+                        {"model": "xDrive23d", "engine": "B47D20", "power": 211}
+                    ],
+                    "electric": [
+                        {"model": "iX1 xDrive30", "engine": "Dual Motor Electric", "power": 313}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 7, "type": "DKG (DCT)"}, {"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M35i xDrive", "reason": "300hp B48 in a compact SUV — quick, practical, and the most capable petrol U11"},
+                    "diesel": {"model": "xDrive23d", "reason": "211hp B47 diesel with xDrive is the most complete diesel U11 package"}
+                }
+            }
+        },
+        "X2": {
+            "F39": {
+                "engines": {
+                    "petrol": [
+                        {"model": "sDrive18i", "engine": "B38B15", "power": 136},
+                        {"model": "xDrive20i", "engine": "B48B20", "power": 192},
+                        {"model": "xDrive25i", "engine": "B48B20", "power": 231},
+                        {"model": "M35i", "engine": "B48B20", "power": 306}
+                    ],
+                    "diesel": [
+                        {"model": "sDrive18d", "engine": "B47D20", "power": 150},
+                        {"model": "xDrive20d", "engine": "B47D20", "power": 190},
+                        {"model": "xDrive25d", "engine": "B47D20T0", "power": 231}
+                    ],
+                    "hybrid": [
+                        {"model": "xDrive25e", "engine": "B38B15 + Electric", "power": 220}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6"}],
+                    "automatic": [{"speeds": 7, "type": "DKG (DCT)"}, {"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M35i", "reason": "306hp B48 in the sporty coupe-SUV body — the most characterful X2, sharp and eager"},
+                    "diesel": {"model": "xDrive25d", "reason": "Twin-turbo B47 231hp balances best the sporty X2 character with real-world efficiency"}
+                }
+            },
+            "U10": {
+                "engines": {
+                    "petrol": [
+                        {"model": "sDrive18i", "engine": "B38B15", "power": 136},
+                        {"model": "xDrive25i", "engine": "B48B20", "power": 218},
+                        {"model": "M35i xDrive", "engine": "B48B20", "power": 300}
+                    ],
+                    "diesel": [
+                        {"model": "sDrive18d", "engine": "B47D20", "power": 150},
+                        {"model": "xDrive20d", "engine": "B47D20", "power": 163}
+                    ],
+                    "electric": [
+                        {"model": "iX2 xDrive30", "engine": "Dual Motor Electric", "power": 313}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 7, "type": "DKG (DCT)"}, {"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M35i xDrive", "reason": "300hp B48 with AWD in the new X2 — the performance pick of the U10 lineup"},
+                    "diesel": {"model": "xDrive20d", "reason": "Efficient B47 diesel with xDrive, best all-round diesel package in U10"}
+                }
+            }
+        },
+        "X3": {
+            "E83": {
+                "engines": {
+                    "petrol": [
+                        {"model": "2.5i", "engine": "M54B25", "power": 192},
+                        {"model": "3.0i", "engine": "M54B30", "power": 231},
+                        {"model": "3.0si", "engine": "N52B30", "power": 272}
+                    ],
+                    "diesel": [
+                        {"model": "2.0d", "engine": "M47D20", "power": 150},
+                        {"model": "3.0d", "engine": "M57D30", "power": 218},
+                        {"model": "3.0sd", "engine": "M57D30TOP", "power": 286}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-37BZ"}],
+                    "automatic": [{"speeds": 5, "type": "ZF 5HP24"}, {"speeds": 6, "type": "ZF 6HP26"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "3.0si", "reason": "N52B30 naturally aspirated inline-six — smooth, reliable, and the best balanced E83"},
+                    "diesel": {"model": "3.0sd", "reason": "M57D30TOP twin-turbo 286hp — exceptional performance from a diesel X3"}
+                }
+            },
+            "F25": {
+                "engines": {
+                    "petrol": [
+                        {"model": "xDrive20i", "engine": "N20B20", "power": 184},
+                        {"model": "xDrive28i", "engine": "N20B20", "power": 245},
+                        {"model": "xDrive35i", "engine": "N55B30", "power": 306}
+                    ],
+                    "diesel": [
+                        {"model": "xDrive20d", "engine": "N47D20", "power": 184},
+                        {"model": "xDrive30d", "engine": "N57D30", "power": 258},
+                        {"model": "xDrive35d", "engine": "N57D30TOP", "power": 313}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6"}],
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP45"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "xDrive35i", "reason": "N55 306hp delivers proper performance — the sporty choice in the F25 range"},
+                    "diesel": {"model": "xDrive35d", "reason": "N57D30TOP tri-turbo 313hp — effortless, fast, and economical for a large SUV"}
+                }
+            },
+            "G01": {
+                "engines": {
+                    "petrol": [
+                        {"model": "xDrive20i", "engine": "B48B20", "power": 184},
+                        {"model": "xDrive30i", "engine": "B48B20", "power": 252},
+                        {"model": "M40i", "engine": "B58B30", "power": 360},
+                        {"model": "xDrive30e", "engine": "B48B20 + Electric", "power": 292}
+                    ],
+                    "diesel": [
+                        {"model": "xDrive20d", "engine": "B47D20", "power": 190},
+                        {"model": "xDrive30d", "engine": "B57D30", "power": 265},
+                        {"model": "M40d", "engine": "B57D30TOP", "power": 340}
+                    ],
+                    "hybrid": [
+                        {"model": "xDrive30e", "engine": "B48B20 + Electric", "power": 292}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M40i", "reason": "B58 360hp in an X3 — near-M performance with daily SUV usability"},
+                    "diesel": {"model": "M40d", "reason": "340hp B57 quad-turbo diesel — the fastest production diesel X3, immensely capable"}
+                }
+            }
+        },
+        "X4": {
+            "F26": {
+                "engines": {
+                    "petrol": [
+                        {"model": "xDrive20i", "engine": "N20B20", "power": 184},
+                        {"model": "xDrive28i", "engine": "N20B20", "power": 245},
+                        {"model": "xDrive35i", "engine": "N55B30", "power": 306}
+                    ],
+                    "diesel": [
+                        {"model": "xDrive20d", "engine": "N47D20", "power": 184},
+                        {"model": "xDrive30d", "engine": "N57D30", "power": 258},
+                        {"model": "xDrive35d", "engine": "N57D30TOP", "power": 313}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP45"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "xDrive35i", "reason": "N55 306hp is the only engine truly worthy of the X4's coupe-SUV sporting pretensions"},
+                    "diesel": {"model": "xDrive35d", "reason": "Tri-turbo N57 313hp gives the F26 a seriously fast diesel option"}
+                }
+            },
+            "G02": {
+                "engines": {
+                    "petrol": [
+                        {"model": "xDrive20i", "engine": "B48B20", "power": 184},
+                        {"model": "xDrive30i", "engine": "B48B20", "power": 252},
+                        {"model": "M40i", "engine": "B58B30", "power": 360},
+                        {"model": "X4 M", "engine": "S58B30", "power": 480},
+                        {"model": "X4 M Competition", "engine": "S58B30", "power": 510}
+                    ],
+                    "diesel": [
+                        {"model": "xDrive20d", "engine": "B47D20", "power": 190},
+                        {"model": "xDrive30d", "engine": "B57D30", "power": 265},
+                        {"model": "M40d", "engine": "B57D30TOP", "power": 340}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "X4 M Competition", "reason": "S58 510hp in the X4 body — the closest an SUV gets to a sports car experience"},
+                    "diesel": {"model": "M40d", "reason": "340hp quad-turbo B57 — hugely impressive performance with diesel running costs"}
+                }
+            }
+        },
+        "X5": {
+            "E53": {
+                "engines": {
+                    "petrol": [
+                        {"model": "3.0i", "engine": "M54B30", "power": 231},
+                        {"model": "4.4i", "engine": "M62B44", "power": 286},
+                        {"model": "4.6is", "engine": "M62B46", "power": 347},
+                        {"model": "4.8is", "engine": "N62B48", "power": 360}
+                    ],
+                    "diesel": [
+                        {"model": "3.0d", "engine": "M57D30", "power": 218},
+                        {"model": "4.4d", "engine": "M67D44", "power": 286}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 5, "type": "Getrag GS5-39DZ"}],
+                    "automatic": [{"speeds": 5, "type": "ZF 5HP24"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "4.8is", "reason": "N62 V8 360hp in the original X5 — superb V8 character and the strongest petrol E53"},
+                    "diesel": {"model": "3.0d", "reason": "M57 inline-six diesel — reliable, torquey, the best daily driver in the E53 range"}
+                }
+            },
+            "E70": {
+                "engines": {
+                    "petrol": [
+                        {"model": "xDrive30i", "engine": "N52B30", "power": 272},
+                        {"model": "xDrive35i", "engine": "N54B30", "power": 306},
+                        {"model": "xDrive48i", "engine": "N62B48", "power": 367},
+                        {"model": "xDrive50i", "engine": "N63B44", "power": 408},
+                        {"model": "X5 M", "engine": "S63B44", "power": 555}
+                    ],
+                    "diesel": [
+                        {"model": "xDrive30d", "engine": "M57D30TU2", "power": 235},
+                        {"model": "xDrive35d", "engine": "M57D30TOP", "power": 286},
+                        {"model": "xDrive40d", "engine": "N57D30S1", "power": 306}
+                    ],
+                    "hybrid": [
+                        {"model": "xDrive40e", "engine": "N55B30 + Electric", "power": 313}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 6, "type": "ZF 6HP26"}, {"speeds": 8, "type": "ZF 8HP70"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "X5 M (S63)", "reason": "555hp twin-turbo V8 — the first X5 M, brutally fast and surprisingly capable off-road"},
+                    "diesel": {"model": "xDrive40d", "reason": "306hp N57 tri-turbo diesel — the best all-round diesel in the E70 with strong performance"}
+                }
+            },
+            "F15": {
+                "engines": {
+                    "petrol": [
+                        {"model": "xDrive35i", "engine": "N55B30", "power": 306},
+                        {"model": "xDrive40i", "engine": "N55B30", "power": 326},
+                        {"model": "xDrive50i", "engine": "N63B44TU", "power": 450},
+                        {"model": "X5 M", "engine": "S63B44T2", "power": 575}
+                    ],
+                    "diesel": [
+                        {"model": "xDrive25d", "engine": "N57D20", "power": 218},
+                        {"model": "xDrive30d", "engine": "N57D30", "power": 258},
+                        {"model": "xDrive40d", "engine": "N57D30TOP", "power": 313},
+                        {"model": "xDrive50d", "engine": "N57D30S1", "power": 381}
+                    ],
+                    "hybrid": [
+                        {"model": "xDrive40e", "engine": "N20B20 + Electric", "power": 313}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP70"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "X5 M (S63T2)", "reason": "575hp competition-tuned S63 — the definitive F15 performance machine"},
+                    "diesel": {"model": "xDrive50d", "reason": "Quad-turbo N57 381hp diesel — unrivalled diesel performance in this class"}
+                }
+            },
+            "G05": {
+                "engines": {
+                    "petrol": [
+                        {"model": "xDrive40i", "engine": "B58B30", "power": 340},
+                        {"model": "xDrive50i", "engine": "N63B44TU3", "power": 462},
+                        {"model": "X5 M", "engine": "S63B44T4", "power": 600},
+                        {"model": "X5 M Competition", "engine": "S63B44T4", "power": 625}
+                    ],
+                    "diesel": [
+                        {"model": "xDrive25d", "engine": "B47D20", "power": 231},
+                        {"model": "xDrive30d", "engine": "B57D30", "power": 265},
+                        {"model": "xDrive40d", "engine": "B57D30TOP", "power": 340},
+                        {"model": "M50d", "engine": "B57D30S0", "power": 400}
+                    ],
+                    "hybrid": [
+                        {"model": "xDrive45e", "engine": "B58B30 + Electric", "power": 394}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "X5 M Competition", "reason": "625hp S63 V8 — the fastest production X5, a genuine supercar in SUV clothing"},
+                    "diesel": {"model": "M50d", "reason": "Quad-turbo B57 400hp — no other large SUV diesel matches this output and refinement"}
+                }
+            }
+        },
+        "X6": {
+            "E71": {
+                "engines": {
+                    "petrol": [
+                        {"model": "xDrive35i", "engine": "N54B30", "power": 306},
+                        {"model": "xDrive50i", "engine": "N63B44", "power": 408},
+                        {"model": "X6 M", "engine": "S63B44", "power": 555}
+                    ],
+                    "diesel": [
+                        {"model": "xDrive30d", "engine": "M57D30TU2", "power": 235},
+                        {"model": "xDrive35d", "engine": "M57D30TOP", "power": 286},
+                        {"model": "xDrive40d", "engine": "N57D30S1", "power": 306}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 6, "type": "ZF 6HP26"}, {"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "X6 M (S63)", "reason": "555hp S63 twin-turbo V8 — first M-badged X6, spectacular performance from a large coupe-SUV"},
+                    "diesel": {"model": "xDrive40d", "reason": "306hp N57 tri-turbo is the best diesel in the E71 — fast enough to match the coupe styling"}
+                }
+            },
+            "F16": {
+                "engines": {
+                    "petrol": [
+                        {"model": "xDrive35i", "engine": "N55B30", "power": 306},
+                        {"model": "xDrive50i", "engine": "N63B44TU", "power": 450},
+                        {"model": "X6 M", "engine": "S63B44T2", "power": 575}
+                    ],
+                    "diesel": [
+                        {"model": "xDrive30d", "engine": "N57D30", "power": 258},
+                        {"model": "xDrive40d", "engine": "N57D30TOP", "power": 313},
+                        {"model": "xDrive50d", "engine": "N57D30S1", "power": 381}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP70"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "X6 M (S63T2)", "reason": "575hp competition-spec S63 — the F16 M is surprisingly agile for a large coupe-SUV"},
+                    "diesel": {"model": "xDrive50d", "reason": "381hp quad-turbo N57 — the most powerful production diesel X6, effortlessly rapid"}
+                }
+            },
+            "G06": {
+                "engines": {
+                    "petrol": [
+                        {"model": "xDrive40i", "engine": "B58B30", "power": 340},
+                        {"model": "xDrive50i", "engine": "N63B44TU3", "power": 462},
+                        {"model": "X6 M", "engine": "S63B44T4", "power": 600},
+                        {"model": "X6 M Competition", "engine": "S63B44T4", "power": 625}
+                    ],
+                    "diesel": [
+                        {"model": "xDrive30d", "engine": "B57D30", "power": 265},
+                        {"model": "xDrive40d", "engine": "B57D30TOP", "power": 340},
+                        {"model": "M50d", "engine": "B57D30S0", "power": 400}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "X6 M Competition", "reason": "625hp S63 in the boldest BMW body — controversial styling, uncontroversial performance"},
+                    "diesel": {"model": "M50d", "reason": "400hp quad-turbo B57 is unique in the segment — extraordinary pace with acceptable economy"}
+                }
+            }
+        },
+        "X7": {
+            "G07": {
+                "engines": {
+                    "petrol": [
+                        {"model": "xDrive40i", "engine": "B58B30", "power": 340},
+                        {"model": "xDrive50i", "engine": "N63B44TU3", "power": 462},
+                        {"model": "M60i", "engine": "S68B44", "power": 530},
+                        {"model": "Alpina XB7", "engine": "B68 (tuned S68)", "power": 621}
+                    ],
+                    "diesel": [
+                        {"model": "xDrive30d", "engine": "B57D30", "power": 265},
+                        {"model": "xDrive40d", "engine": "B57D30TOP", "power": 340},
+                        {"model": "M50d", "engine": "B57D30S0", "power": 400}
+                    ],
+                    "hybrid": [
+                        {"model": "xDrive50e", "engine": "B58B30 + Electric", "power": 489}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M60i", "reason": "530hp S68 V8 in BMW's largest SUV — the M60i is brutally fast while remaining civilised"},
+                    "diesel": {"model": "M50d", "reason": "400hp quad-turbo diesel in a full-size 7-seat SUV — remarkable engineering achievement"}
+                }
+            }
+        },
+        "Z_series": {
+            "Z3": {
+                "engines": {
+                    "petrol": [
+                        {"model": "1.8", "engine": "M43B18", "power": 116},
+                        {"model": "1.9", "engine": "M44B19", "power": 140},
+                        {"model": "2.0", "engine": "M52B20", "power": 150},
+                        {"model": "2.2i", "engine": "M54B22", "power": 170},
+                        {"model": "2.5", "engine": "M52B25", "power": 192},
+                        {"model": "2.8", "engine": "M52B28", "power": 193},
+                        {"model": "3.0i", "engine": "M54B30", "power": 231},
+                        {"model": "M Roadster 3.2", "engine": "S50B32/S54B32", "power": 321}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 5, "type": "Getrag 250"}, {"speeds": 6, "type": "Getrag 420G (M)"}],
+                    "automatic": [{"speeds": 4, "type": "ZF 4HP22"}, {"speeds": 5, "type": "ZF 5HP18"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M Roadster (S54)", "reason": "S54B32 321hp screamer in the Z3 body — the sharpest, most focused Z3 ever built"}
+                }
+            },
+            "Z4_E85": {
+                "engines": {
+                    "petrol": [
+                        {"model": "2.0i", "engine": "N46B20", "power": 150},
+                        {"model": "2.2i", "engine": "M54B22", "power": 170},
+                        {"model": "2.5i", "engine": "M54B25", "power": 192},
+                        {"model": "2.5si", "engine": "N52B25", "power": 218},
+                        {"model": "3.0i", "engine": "M54B30", "power": 231},
+                        {"model": "3.0si", "engine": "N52B30", "power": 265},
+                        {"model": "M Roadster", "engine": "S54B32", "power": 343}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 5, "type": "Getrag 250"}, {"speeds": 6, "type": "Getrag 420G (M)"}],
+                    "automatic": [{"speeds": 6, "type": "ZF 6HP19"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M Roadster (S54)", "reason": "343hp S54 in the E85 — high-revving, communicative, the last pure BMW M roadster"}
+                }
+            },
+            "Z4_E89": {
+                "engines": {
+                    "petrol": [
+                        {"model": "sDrive18i", "engine": "N46B20", "power": 156},
+                        {"model": "sDrive20i", "engine": "N20B20", "power": 184},
+                        {"model": "sDrive28i", "engine": "N20B20", "power": 245},
+                        {"model": "sDrive30i", "engine": "N52B30", "power": 258},
+                        {"model": "sDrive35i", "engine": "N54B30", "power": 306},
+                        {"model": "sDrive35is", "engine": "N54B30T0", "power": 340}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-45BZ"}],
+                    "automatic": [{"speeds": 7, "type": "DKG (DCT)"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "sDrive35is", "reason": "340hp overboost N54 — the ultimate E89 Z4, quick and the only one with a proper manual feel via DCT"}
+                }
+            },
+            "Z4_G29": {
+                "engines": {
+                    "petrol": [
+                        {"model": "sDrive20i", "engine": "B48B20", "power": 197},
+                        {"model": "sDrive30i", "engine": "B48B20", "power": 258},
+                        {"model": "M40i", "engine": "B58B30", "power": 340}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6 (sDrive20i)"}],
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M40i", "reason": "B58 340hp in the G29 — co-developed with Toyota Supra, excellent chassis and strong engine"}
+                }
+            }
+        },
+        "M_models": {
+            "M2_F87": {
+                "engines": {
+                    "petrol": [
+                        {"model": "M2", "engine": "N55B30T0", "power": 370},
+                        {"model": "M2 Competition", "engine": "S55B30", "power": 411},
+                        {"model": "M2 CS", "engine": "S55B30T0", "power": 450}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-45BZ"}],
+                    "dual_clutch": [{"speeds": 7, "type": "DKG (DCT)"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M2 CS (S55)", "reason": "450hp S55 in the lightest M body — the purest, most focused M car of its generation"}
+                }
+            },
+            "M2_G87": {
+                "engines": {
+                    "petrol": [
+                        {"model": "M2", "engine": "S58B30", "power": 460}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-45BZ"}],
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M2 (S58)", "reason": "S58 from the M3/M4 in a smaller body — 460hp with available manual gearbox, rare in modern BMW M cars"}
+                }
+            },
+            "M3_E36": {
+                "engines": {
+                    "petrol": [
+                        {"model": "M3 3.0", "engine": "S50B30", "power": 286},
+                        {"model": "M3 3.2", "engine": "S50B32", "power": 321},
+                        {"model": "M3 GT", "engine": "S50B30", "power": 295}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 5, "type": "Getrag 420G"}, {"speeds": 6, "type": "Getrag 420G/6"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M3 3.2 (S50B32)", "reason": "321hp inline-six with ITBs and high-revving character — widely regarded as one of the greatest BMW M engines"}
+                }
+            },
+            "M3_E46": {
+                "engines": {
+                    "petrol": [
+                        {"model": "M3", "engine": "S54B32", "power": 343},
+                        {"model": "M3 CSL", "engine": "S54B32", "power": 360},
+                        {"model": "M3 GTR", "engine": "P60B40", "power": 380}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag 420G"}],
+                    "automated": [{"speeds": 6, "type": "SMG II"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M3 CSL (S54)", "reason": "360hp S54 in the lightest M3 ever — the CSL is the definitive E46 M3 and among BMW's greatest cars"}
+                }
+            },
+            "M3_E9x": {
+                "engines": {
+                    "petrol": [
+                        {"model": "M3", "engine": "S65B40", "power": 420},
+                        {"model": "M3 GTS", "engine": "S65B40", "power": 450},
+                        {"model": "M3 CRT", "engine": "S65B40", "power": 450}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-53BZ"}],
+                    "dual_clutch": [{"speeds": 7, "type": "DKG (DCT)"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M3 GTS (S65)", "reason": "450hp 4.4L V8 in the lightest E9x M3 — an extreme track-focused homologation special"}
+                }
+            },
+            "M4_F82": {
+                "engines": {
+                    "petrol": [
+                        {"model": "M4", "engine": "S55B30", "power": 431},
+                        {"model": "M4 Competition", "engine": "S55B30", "power": 450},
+                        {"model": "M4 GTS", "engine": "S55B30T0", "power": 500},
+                        {"model": "M4 CS", "engine": "S55B30T0", "power": 460},
+                        {"model": "M4 CSL", "engine": "S55B30T0", "power": 460}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-45BZ"}],
+                    "dual_clutch": [{"speeds": 7, "type": "DKG (DCT)"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M4 GTS (S55)", "reason": "Water-injection 500hp S55 — the most extreme road-legal F82, devastatingly quick on track"}
+                }
+            },
+            "M4_G82": {
+                "engines": {
+                    "petrol": [
+                        {"model": "M4", "engine": "S58B30", "power": 480},
+                        {"model": "M4 Competition", "engine": "S58B30", "power": 510},
+                        {"model": "M4 CSL", "engine": "S58B30", "power": 550},
+                        {"model": "M4 GT3", "engine": "S58B30 (race)", "power": 510}
+                    ]
+                },
+                "transmission": {
+                    "manual": [{"speeds": 6, "type": "Getrag GS6-45BZ (base M4)"}],
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M4 CSL (S58)", "reason": "550hp S58 in the lightest G82 — extreme performance with aggressive aero, limited to 1000 units"}
+                }
+            },
+            "M5_F10": {
+                "engines": {
+                    "petrol": [
+                        {"model": "M5", "engine": "S63B44", "power": 560},
+                        {"model": "M5 Competition", "engine": "S63B44T4", "power": 600},
+                        {"model": "M5 30 Jahre", "engine": "S63B44T4", "power": 600}
+                    ]
+                },
+                "transmission": {
+                    "dual_clutch": [{"speeds": 7, "type": "DKG (DCT)"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M5 Competition (S63)", "reason": "600hp twin-turbo V8, first M5 with DCT — enormously capable and the start of the modern M5 era"}
+                }
+            },
+            "M5_F90": {
+                "engines": {
+                    "petrol": [
+                        {"model": "M5", "engine": "S63B44T4", "power": 600},
+                        {"model": "M5 Competition", "engine": "S63B44T4", "power": 625},
+                        {"model": "M5 CS", "engine": "S63B44T4", "power": 635}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M5 CS (S63)", "reason": "635hp S63, lightest F90 — the definitive super saloon of its generation, exceptional in every metric"}
+                }
+            },
+            "M8_F92": {
+                "engines": {
+                    "petrol": [
+                        {"model": "M8", "engine": "S63B44T4", "power": 600},
+                        {"model": "M8 Competition", "engine": "S63B44T4", "power": 625},
+                        {"model": "M8 Gran Coupe Competition", "engine": "S63B44T4", "power": 625}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 8, "type": "ZF 8HP"}]
+                },
+                "best_engine": {
+                    "petrol": {"model": "M8 Competition", "reason": "625hp S63 V8 in the 8 Series body — the most powerful and opulent M car in recent production"}
+                }
+            }
+        },
+        "electric_BEV": {
+            "i3_I01": {
+                "engines": {
+                    "electric": [
+                        {"model": "i3 60Ah", "engine": "Rear Electric Motor", "power": 170},
+                        {"model": "i3 94Ah", "engine": "Rear Electric Motor", "power": 170},
+                        {"model": "i3 120Ah", "engine": "Rear Electric Motor", "power": 170},
+                        {"model": "i3s", "engine": "Rear Electric Motor (sport tune)", "power": 184}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 1, "type": "Single-speed reduction gear"}]
+                },
+                "best_engine": {
+                    "electric": {"model": "i3s", "reason": "Sport-tuned motor with 184hp and sharper chassis setup — the most engaging i3 to drive"}
+                }
+            },
+            "i4_G26": {
+                "engines": {
+                    "electric": [
+                        {"model": "eDrive35", "engine": "Rear Electric Motor", "power": 286},
+                        {"model": "eDrive40", "engine": "Rear Electric Motor", "power": 340},
+                        {"model": "xDrive40", "engine": "Dual Motor AWD", "power": 340},
+                        {"model": "M50", "engine": "Dual Motor AWD (M-tuned)", "power": 544}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 1, "type": "Single-speed reduction gear"}]
+                },
+                "best_engine": {
+                    "electric": {"model": "M50", "reason": "544hp dual-motor AWD with M suspension — the best driver's EV BMW has yet produced"}
+                }
+            },
+            "i5_G60": {
+                "engines": {
+                    "electric": [
+                        {"model": "eDrive40", "engine": "Rear Electric Motor", "power": 340},
+                        {"model": "xDrive40", "engine": "Dual Motor AWD", "power": 340},
+                        {"model": "M60 xDrive", "engine": "Dual Motor AWD (M-tuned)", "power": 601}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 1, "type": "Single-speed reduction gear"}]
+                },
+                "best_engine": {
+                    "electric": {"model": "M60 xDrive", "reason": "601hp M-tuned dual-motor i5 — 0-100 in 3.8s in a full-size executive saloon body"}
+                }
+            },
+            "i7_G70": {
+                "engines": {
+                    "electric": [
+                        {"model": "eDrive50", "engine": "Rear Electric Motor", "power": 544},
+                        {"model": "xDrive60", "engine": "Dual Motor AWD", "power": 544},
+                        {"model": "M70 xDrive", "engine": "Dual Motor AWD (M-tuned)", "power": 659}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 1, "type": "Single-speed reduction gear"}]
+                },
+                "best_engine": {
+                    "electric": {"model": "M70 xDrive", "reason": "659hp in BMW's flagship luxury saloon — astonishing performance combined with opulent interior"}
+                }
+            },
+            "iX_I20": {
+                "engines": {
+                    "electric": [
+                        {"model": "xDrive40", "engine": "Dual Motor AWD", "power": 326},
+                        {"model": "xDrive50", "engine": "Dual Motor AWD", "power": 523},
+                        {"model": "M60", "engine": "Dual Motor AWD (M-tuned)", "power": 619}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 1, "type": "Single-speed reduction gear"}]
+                },
+                "best_engine": {
+                    "electric": {"model": "M60", "reason": "619hp iX M60 — BMW's most powerful production SUV, with a 105kWh battery and 0-100 in 3.8s"}
+                }
+            },
+            "iX1_U11": {
+                "engines": {
+                    "electric": [
+                        {"model": "xDrive30", "engine": "Dual Motor AWD", "power": 313}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 1, "type": "Single-speed reduction gear"}]
+                },
+                "best_engine": {
+                    "electric": {"model": "xDrive30", "reason": "Only electric option — 313hp AWD in a compact SUV body, 438km WLTP range"}
+                }
+            },
+            "iX3_G08": {
+                "engines": {
+                    "electric": [
+                        {"model": "iX3", "engine": "Rear Electric Motor (5th gen)", "power": 286},
+                        {"model": "iX3 Impressive", "engine": "Rear Electric Motor", "power": 286}
+                    ]
+                },
+                "transmission": {
+                    "automatic": [{"speeds": 1, "type": "Single-speed reduction gear"}]
+                },
+                "best_engine": {
+                    "electric": {"model": "iX3 Impressive", "reason": "286hp rear-drive EV X3 with 460km WLTP range — the most range-focused BMW EV SUV"}
                 }
             }
         }

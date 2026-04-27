@@ -13,17 +13,47 @@ MVP → Layered Architecture → JSON Dataset → ETL → SQLite → Service Lay
 
 ## Current Features
 
-- BMW dataset (E21–G20) stored in JSON as source of truth
+- BMW dataset stored in JSON as source of truth (multiple series supported)
 - SQLite database used for runtime queries
 - CLI-based query interface
 - Rule-based parsing using regex (model, fuel type, intent)
+- Dynamic model and series detection based on database content
 - Filtering by:
   - model generation (E90, F30, G20, etc.)
+  - series (e.g. 3 Series, X5)
   - fuel type (petrol, diesel, hybrid)
+- Support for multiple generations in a single query
 - “Best engine” query support with reasoning
 - Data seeding script (JSON → SQLite)
 
 ---
+
+## How to Run
+
+1. Clone the repository:
+
+git clone https://github.com/Danio06/Cars-Data-API.git  
+cd Cars-Data-API
+
+2. Create and populate the database:
+
+python carsdatabase.py
+
+(This will create cars.db and load data from datacars.json)
+
+3. Run the application:
+
+python app.py
+
+4. Example queries:
+
+e90  
+f30 petrol  
+g20 best diesel
+  
+---
+
+Type "exit" to quit.
 
 ## Example Usage
 
@@ -35,6 +65,9 @@ Returns petrol engines only
 
 Ask: g20 best diesel  
 Returns best diesel engine recommendation
+
+Ask: 3 series  
+Returns all available generations for BMW 3 Series
 
 ---
 
@@ -113,6 +146,8 @@ Data is loaded using a simple ETL process:
 - Added support for “best engine” logic with reasoning
 - Built repeatable database seeding script
 - Added basic validation for inconsistent data
+- Introduced dynamic model/series detection from database
+- Added multi-generation query support
 
 ---
 
