@@ -1,7 +1,9 @@
 from fastapi import FastAPI
+from service import ask
 
 app = FastAPI()
 
-@app.get("/")
-def root():
-    return{"message": "API works"}
+@app.get("/search")
+async def search(q: str):
+    result = ask(q)
+    return result
