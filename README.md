@@ -39,7 +39,6 @@ The project now exposes a REST API for external applications.
 ### Example Usage
 
 Request:
-GET /search?q=x5
 
 ![Swagger UI](TryitOut.png)
 
