@@ -41,9 +41,11 @@ The project now exposes a REST API for external applications.
 Request:
 GET /search?q=x5
 
+![Swagger UI](TryitOut.png)
+
 Response:
 
-(example response JSON)
+![JSON Response](example.png)
 
 ---
 
