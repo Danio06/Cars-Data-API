@@ -2,12 +2,12 @@
 
 ## Overview
 
-Cars Data API is a CLI-based backend project for querying BMW specifications such as models, generations, engines, and transmissions.
+Cars Data API is a backend project for querying BMW specifications such as models, generations, engines, and transmissions.
 
-The project focuses on learning backend fundamentals by evolving from a simple script into a structured application with a layered architecture, query parsing, and a relational database.
+The project focuses on learning backend fundamentals by evolving from a simple script into a structured application with a layered architecture, query parsing, a relational database, and a REST API.
 
-Development path:
-MVP → Layered Architecture → JSON Dataset → ETL → SQLite → Service Layer → REST API (planned)
+Development path:  
+MVP → Layered Architecture → JSON Dataset → ETL → SQLite → Service Layer → REST API
 
 ---
 
@@ -16,6 +16,7 @@ MVP → Layered Architecture → JSON Dataset → ETL → SQLite → Service Lay
 - BMW dataset stored in JSON as source of truth (multiple series supported)
 - SQLite database used for runtime queries
 - CLI-based query interface
+- REST API (FastAPI) for programmatic access
 - Rule-based parsing using regex (model, fuel type, intent)
 - Dynamic model and series detection based on database content
 - Filtering by:
@@ -28,11 +29,29 @@ MVP → Layered Architecture → JSON Dataset → ETL → SQLite → Service Lay
 
 ---
 
+## REST API (FastAPI)
+
+The project now exposes a REST API for external applications.
+
+- Interactive docs: `/docs` (Swagger UI)
+- Endpoint: `GET /search?q={query}`
+
+### Example Usage
+
+Request:
+GET /search?q=x5
+
+Response:
+
+(example response JSON)
+
+---
+
 ## How to Run
 
 1. Clone the repository:
 
-git clone https://github.com/Danio06/Cars-Data-API.git  
+git clone https://github.com/Danio06/Cars-Data-API.git
 cd Cars-Data-API
 
 2. Create and populate the database:
@@ -41,19 +60,19 @@ python carsdatabase.py
 
 (This will create cars.db and load data from datacars.json)
 
-3. Run the application:
+3. Run the API (FastAPI):
+
+uvicorn main:app --reload
+
+4. Visit:
+
+http://127.0.0.1:8000/docs
+
+5. (Optional) Run CLI version:
 
 python app.py
 
-4. Example queries:
-
-e90  
-f30 petrol  
-g20 best diesel
-  
 ---
-
-Type "exit" to quit.
 
 ## Example Usage
 
@@ -71,10 +90,17 @@ Returns all available generations for BMW 3 Series
 
 ---
 
+Type "exit" to quit (CLI mode).
+
+---
+
 ## Project Structure
 
 app.py  
 CLI interface and output formatting
+
+main.py  
+FastAPI REST API layer
 
 service.py  
 Business logic and database queries
@@ -96,7 +122,9 @@ SQLite database (generated locally)
 ## Tech Stack
 
 Python 3  
+FastAPI  
 SQLite  
+Uvicorn  
 JSON  
 Regex (pattern-based parsing)
 
@@ -104,7 +132,7 @@ Regex (pattern-based parsing)
 
 ## Architecture Overview
 
-The project follows a simple layered backend design:
+The project follows a layered backend design:
 
 - Data Layer  
   JSON dataset + SQLite storage
@@ -116,7 +144,8 @@ The project follows a simple layered backend design:
   Handles SQL queries and response building
 
 - Presentation Layer  
-  Formats results for CLI output
+  - CLI for local usage  
+  - FastAPI for REST API access  
 
 ---
 
@@ -143,9 +172,9 @@ Data is loaded using a simple ETL process:
 - Refactored from single-file script to layered architecture
 - Migrated from in-memory JSON to SQLite database
 - Implemented regex-based query parsing
+- Added REST API using FastAPI
 - Added support for “best engine” logic with reasoning
 - Built repeatable database seeding script
-- Added basic validation for inconsistent data
 - Introduced dynamic model/series detection from database
 - Added multi-generation query support
 
@@ -166,11 +195,13 @@ Data is loaded using a simple ETL process:
 - Learn backend architecture and separation of concerns
 - Build a structured query system over real data
 - Practice data transformation (JSON → SQL)
-- Prepare for REST API implementation using FastAPI
+- Build and expose a REST API using FastAPI
+- Prepare for large-scale data expansion (web scraping)
 
 ---
 
 ## Status
 
 In progress  
-Next step: expose functionality through REST API (FastAPI)
+Project now includes a working REST API.  
+Next step: expand dataset using web scraping and scale to more car brands.
