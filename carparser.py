@@ -3,7 +3,12 @@ import psycopg2
 import os
 
 def get_conn():
-    return psycopg2.connect(os.environ["DATABASE_URL"])
+    url = os.getenv("DATABASE_URL")
+
+    if not url:
+        raise RuntimeError("DATABASE_URL not set")
+
+    return psycopg2.connect(url)
 
 
 def clean_query(query):

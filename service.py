@@ -1,10 +1,5 @@
 from carparser import detect_model, detect_fuel, detect_intent
-import psycopg2
-import os
-
-def get_conn():
-    return psycopg2.connect(os.environ["DATABASE_URL"])
-
+from db import get_conn
 
 def ask(query):
     model_input = detect_model(query)
@@ -18,88 +13,96 @@ def ask(query):
         }
 
     conn = get_conn()
-    cursor = conn.cursor()
 
-    search_term = f"%{model_input}%"
+    try:
+        cursor = conn.cursor()
 
-    cursor.execute(
-        "SELECT DISTINCT model FROM engines WHERE model ILIKE %s OR series ILIKE %s",
-        (search_term, search_term)
-    )
+        search_term = f"%{model_input}%"
 
-    found_models = [row[0] for row in cursor.fetchall()]
+        cursor.execute("""
+            SELECT DISTINCT model
+            FROM engines
+            WHERE model ILIKE %s OR series ILIKE %s
+        """, (search_term, search_term))
 
-    if not found_models:
-        conn.close()
-        return {
-            "status": "error",
-            "message": f"Model '{model_input}' not found."
-        }
+        found_models = [r[0] for r in cursor.fetchall()]
 
-    results_by_generation = {}
+        if not found_models:
+            return {
+                "status": "error",
+                "message": f"Model '{model_input}' not found."
+            }
 
-    for gen_model in found_models:
+        results_by_generation = {}
 
-        if fuel:
-            cursor.execute(
-                "SELECT name, engine_code, power FROM engines WHERE model = %s AND fuel = %s",
-                (gen_model, fuel)
-            )
-        else:
-            cursor.execute(
-                "SELECT name, engine_code, power FROM engines WHERE model = %s",
-                (gen_model,)
-            )
+        for gen_model in found_models:
 
-        engines = [
-            {"model": r[0], "engine": r[1], "power": r[2]}
-            for r in cursor.fetchall()
-        ]
-
-        cursor.execute(
-            "SELECT transmission_type, speeds, name FROM transmissions WHERE model = %s",
-            (gen_model,)
-        )
-
-        transmissions = {}
-        for t_type, speeds, name in cursor.fetchall():
-            transmissions.setdefault(t_type, []).append({
-                "speeds": speeds,
-                "type": name
-            })
-
-        best_info = None
-
-        if intent == "best":
+            # ENGINES
             if fuel:
-                cursor.execute(
-                    "SELECT name, reason FROM best_engines WHERE model = %s AND fuel = %s",
-                    (gen_model, fuel)
-                )
-                row = cursor.fetchone()
-                if row:
-                    best_info = {"model": row[0], "reason": row[1]}
+                cursor.execute("""
+                    SELECT name, engine_code, power
+                    FROM engines
+                    WHERE model = %s AND fuel = %s
+                """, (gen_model, fuel))
             else:
-                cursor.execute(
-                    "SELECT fuel, name, reason FROM best_engines WHERE model = %s",
-                    (gen_model,)
-                )
-                rows = cursor.fetchall()
-                best_info = {
-                    r[0]: {"model": r[1], "reason": r[2]}
-                    for r in rows
-                }
+                cursor.execute("""
+                    SELECT name, engine_code, power
+                    FROM engines
+                    WHERE model = %s
+                """, (gen_model,))
 
-        results_by_generation[gen_model] = {
-            "engines": engines,
-            "transmission": transmissions,
-            "best_engine": best_info
+            engines = [
+                {"model": r[0], "engine": r[1], "power": r[2]}
+                for r in cursor.fetchall()
+            ]
+
+            # TRANSMISSIONS
+            cursor.execute("""
+                SELECT transmission_type, speeds, name
+                FROM transmissions
+                WHERE model = %s
+            """, (gen_model,))
+
+            transmissions = {}
+            for t_type, speeds, name in cursor.fetchall():
+                transmissions.setdefault(t_type, []).append({
+                    "speeds": speeds,
+                    "type": name
+                })
+
+            # BEST ENGINE
+            best_info = None
+
+            if intent == "best":
+                cursor.execute("""
+                    SELECT fuel, name, reason
+                    FROM best_engines
+                    WHERE model = %s
+                """, (gen_model,))
+
+                rows = cursor.fetchall()
+
+                if fuel:
+                    for r in rows:
+                        if r[0] == fuel:
+                            best_info = {"model": r[1], "reason": r[2]}
+                else:
+                    best_info = {
+                        r[0]: {"model": r[1], "reason": r[2]}
+                        for r in rows
+                    }
+
+            results_by_generation[gen_model] = {
+                "engines": engines,
+                "transmission": transmissions,
+                "best_engine": best_info
+            }
+
+        return {
+            "status": "ok",
+            "search_query": model_input,
+            "generations": results_by_generation
         }
 
-    conn.close()
-
-    return {
-        "status": "ok",
-        "search_query": model_input,
-        "generations": results_by_generation
-    }
+    finally:
+        conn.close()
