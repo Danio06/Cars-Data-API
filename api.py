@@ -17,24 +17,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- STARTUP ---
 @app.on_event("startup")
 def startup():
     try:
         print("API starting...")
-
-        conn = get_connection()
-        conn.close()
-
-        try:
-            if is_db_empty():
-                print("Seeding PostgreSQL database...")
-                load_json_to_db()
-            else:
-                print("Database already seeded")
-        except Exception as db_error:
-            print("DB not ready yet, skipping seed:", db_error)
-
+        load_json_to_db()
+        print("Database ready")
     except Exception as e:
         print("Startup error:", e)
 

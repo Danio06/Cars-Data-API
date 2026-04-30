@@ -24,7 +24,6 @@ def load_json_to_db():
     conn = get_connection()
     cursor = conn.cursor()
 
-    # CREATE TABLES
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS engines (
         id SERIAL PRIMARY KEY,
@@ -57,16 +56,24 @@ def load_json_to_db():
     )
     """)
 
-    # CLEAR OLD DATA
-    cursor.execute("DELETE FROM engines")
-    cursor.execute("DELETE FROM best_engines")
-    cursor.execute("DELETE FROM transmissions")
+def load_json_to_db():
+    conn = get_connection()
+    cursor = conn.cursor()
 
-    # LOAD JSON
+    cursor.execute("""CREATE TABLE IF NOT EXISTS engines (...)""")
+    cursor.execute("""CREATE TABLE IF NOT EXISTS best_engines (...)""")
+    cursor.execute("""CREATE TABLE IF NOT EXISTS transmissions (...)""")
+    conn.commit()
+
+    cursor.execute("SELECT COUNT(*) FROM engines")
+    if cursor.fetchone()[0] > 0:
+        print("Already seeded, skipping.")
+        conn.close()
+        return
+
     with open("datacars.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # INSERT DATA
     for brand_name, brand_data in data.items():
         for series_name, series_data in brand_data.items():
             for model, model_data in series_data.items():
