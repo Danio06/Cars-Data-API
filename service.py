@@ -1,107 +1,58 @@
-from carparser import detect_model, detect_fuel, detect_intent
 from db import get_conn
+from repository.car_rep import (
+    get_all_models, get_all_series,
+    get_engines, get_transmissions, get_best_engines
+)
+from parser.parser import parse_query
 
 def ask(query):
-    model_input = detect_model(query)
-    fuel = detect_fuel(query)
-    intent = detect_intent(query)
-
-    if not model_input:
-        return {
-            "status": "error",
-            "message": "Please provide model (e.g. E90, F30, X5)"
-        }
-
     conn = get_conn()
-
     try:
-        cursor = conn.cursor()
+        available_models = get_all_models(conn)
+        available_series = get_all_series(conn)
+        parsed = parse_query(query, available_models, available_series)
 
-        search_term = f"%{model_input}%"
+        scope = parsed["scope"]
+        fuel = parsed["fuel"]
+        intent = parsed["intent"]
 
-        cursor.execute("""
-            SELECT DISTINCT model
-            FROM engines
-            WHERE model ILIKE %s OR series ILIKE %s
-        """, (search_term, search_term))
+        series = scope["value"] if scope["type"] == "series" else None
+        model = scope["value"] if scope["type"] == "model" else None
 
-        found_models = [r[0] for r in cursor.fetchall()]
+        engines = get_engines(conn, series=series, model=model, fuel=fuel)
 
-        if not found_models:
+        if not engines:
             return {
                 "status": "error",
-                "message": f"Model '{model_input}' not found."
+                "message": f"No results found for: {query}",
+                "parsed": parsed
             }
 
-        results_by_generation = {}
+        transmissions = get_transmissions(conn, series=series, model=model)
 
-        for gen_model in found_models:
+        best = None
+        if intent == "best":
+            best = get_best_engines(conn, series=series, model=model, fuel=fuel)
 
-            # ENGINES
-            if fuel:
-                cursor.execute("""
-                    SELECT name, engine_code, power
-                    FROM engines
-                    WHERE model = %s AND fuel = %s
-                """, (gen_model, fuel))
-            else:
-                cursor.execute("""
-                    SELECT name, engine_code, power
-                    FROM engines
-                    WHERE model = %s
-                """, (gen_model,))
-
-            engines = [
-                {"model": r[0], "engine": r[1], "power": r[2]}
-                for r in cursor.fetchall()
-            ]
-
-            # TRANSMISSIONS
-            cursor.execute("""
-                SELECT transmission_type, speeds, name
-                FROM transmissions
-                WHERE model = %s
-            """, (gen_model,))
-
-            transmissions = {}
-            for t_type, speeds, name in cursor.fetchall():
-                transmissions.setdefault(t_type, []).append({
-                    "speeds": speeds,
-                    "type": name
-                })
-
-            # BEST ENGINE
-            best_info = None
-
-            if intent == "best":
-                cursor.execute("""
-                    SELECT fuel, name, reason
-                    FROM best_engines
-                    WHERE model = %s
-                """, (gen_model,))
-
-                rows = cursor.fetchall()
-
-                if fuel:
-                    for r in rows:
-                        if r[0] == fuel:
-                            best_info = {"model": r[1], "reason": r[2]}
-                else:
-                    best_info = {
-                        r[0]: {"model": r[1], "reason": r[2]}
-                        for r in rows
-                    }
-
-            results_by_generation[gen_model] = {
-                "engines": engines,
-                "transmission": transmissions,
-                "best_engine": best_info
-            }
+        grouped = {}
+        for e in engines:
+            m = e["model"]
+            if m not in grouped:
+                grouped[m] = {"engines": [], "transmission": transmissions.get(m, {}), "best_engine": None}
+            grouped[m]["engines"].append({
+                "model": e["name"],
+                "engine": e["engine_code"],
+                "power": e["power"],
+                "fuel": e["fuel"]
+            })
+            if best and m in best:
+                grouped[m]["best_engine"] = best[m].get(fuel) if fuel else best[m]
 
         return {
             "status": "ok",
-            "search_query": model_input,
-            "generations": results_by_generation
+            "search_query": query,
+            "parsed": parsed,
+            "generations": grouped
         }
 
     finally:
