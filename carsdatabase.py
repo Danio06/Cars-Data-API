@@ -25,44 +25,37 @@ def load_json_to_db():
     cursor = conn.cursor()
 
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS engines (
-        id SERIAL PRIMARY KEY,
-        series TEXT,
-        model TEXT,
-        fuel TEXT,
-        name TEXT,
-        engine_code TEXT,
-        power INTEGER
-    )
+        CREATE TABLE IF NOT EXISTS engines (
+            id SERIAL PRIMARY KEY,
+            series TEXT,
+            model TEXT,
+            fuel TEXT,
+            name TEXT,
+            engine_code TEXT,
+            power INTEGER
+        )
     """)
 
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS best_engines (
-        id SERIAL PRIMARY KEY,
-        model TEXT,
-        fuel TEXT,
-        name TEXT,
-        reason TEXT
-    )
+        CREATE TABLE IF NOT EXISTS best_engines (
+            id SERIAL PRIMARY KEY,
+            model TEXT,
+            fuel TEXT,
+            name TEXT,
+            reason TEXT
+        )
     """)
 
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS transmissions (
-        id SERIAL PRIMARY KEY,
-        model TEXT,
-        transmission_type TEXT,
-        speeds INTEGER,
-        name TEXT
-    )
+        CREATE TABLE IF NOT EXISTS transmissions (
+            id SERIAL PRIMARY KEY,
+            model TEXT,
+            transmission_type TEXT,
+            speeds INTEGER,
+            name TEXT
+        )
     """)
 
-def load_json_to_db():
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    cursor.execute("""CREATE TABLE IF NOT EXISTS engines (...)""")
-    cursor.execute("""CREATE TABLE IF NOT EXISTS best_engines (...)""")
-    cursor.execute("""CREATE TABLE IF NOT EXISTS transmissions (...)""")
     conn.commit()
 
     cursor.execute("SELECT COUNT(*) FROM engines")
@@ -71,7 +64,7 @@ def load_json_to_db():
         conn.close()
         return
 
-    with open("datacars.json", "r", encoding="utf-8") as f:
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "datacars.json"), "r", encoding="utf-8") as f:
         data = json.load(f)
 
     for brand_name, brand_data in data.items():
@@ -82,27 +75,26 @@ def load_json_to_db():
                 for fuel, engine_list in engines.items():
                     for engine in engine_list:
                         cursor.execute("""
-                        INSERT INTO engines (series, model, fuel, name, engine_code, power)
-                        VALUES (%s, %s, %s, %s, %s, %s)
+                            INSERT INTO engines (series, model, fuel, name, engine_code, power)
+                            VALUES (%s, %s, %s, %s, %s, %s)
                         """, (series_name, model, fuel, engine["model"], engine["engine"], engine["power"]))
 
                 best = model_data.get("best_engine", {})
                 for fuel, engine in best.items():
-                    if isinstance(engine, dict) and engine.get("model") is not None:
+                    if isinstance(engine, dict) and engine.get("model"):
                         cursor.execute("""
-                        INSERT INTO best_engines (model, fuel, name, reason)
-                        VALUES (%s, %s, %s, %s)
+                            INSERT INTO best_engines (model, fuel, name, reason)
+                            VALUES (%s, %s, %s, %s)
                         """, (model, fuel, engine.get("model"), engine.get("reason")))
 
                 transmissions = model_data.get("transmission", {})
                 for trans_type, trans_list in transmissions.items():
                     for trans in trans_list:
                         cursor.execute("""
-                        INSERT INTO transmissions (model, transmission_type, speeds, name)
-                        VALUES (%s, %s, %s, %s)
+                            INSERT INTO transmissions (model, transmission_type, speeds, name)
+                            VALUES (%s, %s, %s, %s)
                         """, (model, trans_type, trans["speeds"], trans["type"]))
 
     conn.commit()
     conn.close()
-
     print("PostgreSQL DB seeded.")
