@@ -3,7 +3,7 @@ from repository.cars_rep import (
     get_all_models, get_all_series,
     get_engines, get_transmissions, get_best_engines
 )
-from parser.parser import parse_query
+from parser import parse_query
 
 def ask(query):
     conn = get_conn()
