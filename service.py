@@ -11,7 +11,7 @@ def ask(query):
         available_models = get_all_models(conn)
         available_series = get_all_series(conn)
         parsed = parse_query(query, available_models, available_series)
-        
+
         scope = parsed["scope"]
         fuel = parsed["fuel"]
         intent = parsed["intent"]
@@ -31,12 +31,12 @@ def ask(query):
 
         engines = get_engines(conn, series=series, model=model, fuel=fuel)
 
-if not engines:
-    return {
-        "status": "error",
-        "message": f"No results found for: {query}",
-        "parsed": parsed
-    }
+        if not engines:
+            return {
+                "status": "error",
+                "message": f"No results found for: {query}",
+                "parsed": parsed
+            }
 
         transmissions = get_transmissions(conn, series=series, model=model)
 
