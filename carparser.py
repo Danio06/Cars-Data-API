@@ -2,11 +2,11 @@ import re
 
 INTENT_TO_SERIES = {
     "suv": {"type": "family", "value": "X"},
-    "x":   {"type": "family", "value": "X"},
     "coupe": {"type": "series", "value": "4_series"},
     "sedan": {"type": "series", "value": "3_series"},
     "compact": {"type": "series", "value": "1_series"},
 }
+
 
 SERIES_ALIASES = {
     "1": "1_series",
