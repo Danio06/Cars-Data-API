@@ -7,7 +7,7 @@ Cars Data API is a backend project for querying BMW specifications such as model
 The project focuses on learning backend fundamentals by evolving from a simple script into a structured application with a layered architecture, query parsing, a relational database, and a REST API.
 
 Development path:  
-MVP → Layered Architecture → JSON Dataset → ETL → SQLite → PostgreSQL → REST API → Cloud Deploy → Frontend
+MVP → Layered Architecture → JSON Dataset → ETL → SQLite → PostgreSQL → REST API → Cloud Deploy → Frontend → Unit Tests
 
 ---
 
@@ -17,7 +17,10 @@ MVP → Layered Architecture → JSON Dataset → ETL → SQLite → PostgreSQL 
 - PostgreSQL database used for runtime queries (hosted on Render)
 - REST API (FastAPI) for programmatic access, deployed to Render
 - Interactive frontend hosted on GitHub Pages
-- Rule-based parsing using regex (model, fuel type, intent)
+- Layered architecture: Parser/Service/Repository/API
+- Smart scope detection: model(F30), series(3_series), family(X→X1-X7), intent(suv, coupe, sedan)
+- Unit test suite (pytest) covering parser logic - 7/7 passing
+- Rule-based parsing using ragex (model, fuel type, intent)
 - Dynamic model and series detection based on database content
 - Filtering by:
   - model generation (E90, F30, G20, etc.)
@@ -51,7 +54,7 @@ Request:
 GET https://cars-data-api.onrender.com/search?q=e90
 ```
 
-Response: Full dataset for BMW E90 including engines, transmissions and best engine recommendation.
+Response: BMW E90 dataset including engines and transmission.
 
 ---
 
@@ -87,6 +90,12 @@ http://127.0.0.1:8000/docs
 ```
 python app.py
 ```
+7. Run unit tests:
+
+```
+
+python -m pytest test.py
+```
 
 ---
 
@@ -94,7 +103,7 @@ python app.py
 
 ```
 Ask: e90
-Returns full dataset for BMW E90
+Returns engines and transmissions for E90
 
 Ask: f30 petrol
 Returns petrol engines only
@@ -104,6 +113,10 @@ Returns best diesel engine recommendation
 
 Ask: 3 series
 Returns all available generations for BMW 3 Series
+
+Ask: X
+Returns entire X-family
+
 ```
 
 ---
@@ -111,13 +124,17 @@ Returns all available generations for BMW 3 Series
 ## Project Structure
 
 ```
-app.py          CLI interface and output formatting
+main.py         FastAPI entry point
 api.py          FastAPI REST API layer
-service.py      Business logic and database queries
-carparser.py    Regex-based input parsing (model, fuel, intent)
+service.py      Business logic and orchestration
+carparser.py    Smart query parser (scope, fuel, intent detection)
 carsdatabase.py ETL script for loading JSON data into PostgreSQL
 db.py           Database connection helper
 datacars.json   Source dataset
+app.py          CLI interface and output formatting
+repository/
+    cars_rep.py Repository layer — all SQL queries isolated here
+test.py         Unit tests for parser logic (pytest, 7/7)
 ```
 
 ---
@@ -128,6 +145,7 @@ datacars.json   Source dataset
 Python 3
 FastAPI
 PostgreSQL (psycopg2)
+pytest
 Uvicorn
 Render (cloud deployment)
 GitHub Pages (frontend hosting)
@@ -142,6 +160,7 @@ Regex (pattern-based parsing)
 The project follows a layered backend design:
 
 - **Data Layer** — JSON dataset + PostgreSQL storage (Render)
+- **Repository Layer** — All SQL queries isolated in one place, decoupled from business logic
 - **Parser Layer** — Extracts model, fuel type, and intent from user input
 - **Service Layer** — Handles SQL queries and response building
 - **Presentation Layer**
@@ -168,7 +187,9 @@ Data is loaded automatically on API startup:
 
 - Refactored from single-file script to layered architecture
 - Migrated from in-memory JSON to SQLite, then to PostgreSQL
-- Implemented regex-based query parsing
+- Extracted Repository layer — SQL queries separated from business logic
+- Refactored parser into smart scope detection (model / series / family)
+- Added unit test suite (pytest, 7/7) running without database dependency
 - Added REST API using FastAPI
 - Added support for "best engine" logic with reasoning
 - Migrated to cloud: API on Render, database on Render PostgreSQL
@@ -181,7 +202,6 @@ Data is loaded automatically on API startup:
 
 - Parsing is rule-based and does not handle complex natural language
 - No fuzzy matching or typo handling
-- Service layer mixes business logic with response formatting
 - No logging or error tracking system
 
 ---
@@ -193,10 +213,16 @@ Data is loaded automatically on API startup:
 - Practice data transformation (JSON → SQL)
 - Build and expose a REST API using FastAPI
 - Deploy a full working application to the cloud
+- Write testable, maintainable code with unit test coverage
 
 ---
 
 ## Status
 
-**Live** — API deployed on Render, frontend on GitHub Pages.  
-Next step: expand dataset using web scraping and scale to more car brands.
+**Live** — API deployed on Render, frontend on GitHub Pages. Unit tested (pytest 7/7)  
+Next steps:
+- Integration tests hitting live API endpoints (pytest + requests)
+- Error logging to rotating file (Python logging module)
+- Error reporting — structured log file with timestamp, endpoint, query, error type
+- Frontend E2E tests (Playwright)
+- GitHub Actions CI — run unit tests on every push
