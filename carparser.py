@@ -1,11 +1,11 @@
 import re
 
 INTENT_TO_SERIES = {
-    "suv":      "x",
-    "x":        "x",
-    "coupe":    "4_series",
-    "sedan":    "3_series",
-    "compact":  "1_series",
+    "suv": {"type": "family", "value": "X"},
+    "x":   {"type": "family", "value": "X"},
+    "coupe": {"type": "series", "value": "4_series"},
+    "sedan": {"type": "series", "value": "3_series"},
+    "compact": {"type": "series", "value": "1_series"},
 }
 
 SERIES_ALIASES = {
@@ -17,33 +17,40 @@ SERIES_ALIASES = {
     "6": "6_series",
     "7": "7_series",
     "8": "8_series",
-    "x": "x",
-    "z": "z_series",
 }
 
-def clean(q):
-    return q.upper().strip()
+def clean(query):
+    return query.upper().strip()
 
 def detect_scope(query, available_models, available_series):
     q = clean(query)
     q_lower = query.lower().strip()
 
-    for keyword, series in INTENT_TO_SERIES.items():
+    for keyword, scope in INTENT_TO_SERIES.items():
         if keyword in q_lower:
-            return {"type": "series", "value": series}
+            return scope
 
     for model in available_models:
         if model in q or model in q.replace(" ", ""):
             return {"type": "model", "value": model}
 
+    x_match = re.search(r"\bX([1-7])\b", q)
+    if x_match:
+        return {"type": "series", "value": f"X{x_match.group(1)}"}
+
+    if re.search(r"\bX\b", q):
+        return {"type": "family", "value": "X"}
+
+    if re.search(r"\bM\b", q):
+        return {"type": "series", "value": "M_models"}
+
+    if re.search(r"\bZ\b", q):
+        return {"type": "series", "value": "Z_series"}
+
     series_match = re.search(r"\b([1-8])\s*(?:SERIES|_SERIES)?\b", q)
     if series_match:
         num = series_match.group(1)
         return {"type": "series", "value": SERIES_ALIASES.get(num, f"{num}_series")}
-
-    for letter in ["X", "M", "Z"]:
-        if re.search(rf"\b{letter}\b", q):
-            return {"type": "family", "value": letter}
 
     return {"type": "all", "value": None}
 

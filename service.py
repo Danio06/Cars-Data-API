@@ -29,7 +29,7 @@ def ask(query):
             series = None
             model = None
 
-engines = get_engines(conn, series=series, model=model, fuel=fuel)
+        engines = get_engines(conn, series=series, model=model, fuel=fuel)
 
 if not engines:
     return {
