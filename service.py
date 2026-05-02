@@ -3,7 +3,7 @@ from repository.cars_rep import (
     get_all_models, get_all_series,
     get_engines, get_transmissions, get_best_engines
 )
-from parser import parse_query
+from carparserparser import parse_query
 
 def ask(query):
     conn = get_conn()
@@ -11,22 +11,32 @@ def ask(query):
         available_models = get_all_models(conn)
         available_series = get_all_series(conn)
         parsed = parse_query(query, available_models, available_series)
-
+        
         scope = parsed["scope"]
         fuel = parsed["fuel"]
         intent = parsed["intent"]
 
-        series = scope["value"] if scope["type"] == "series" else None
-        model = scope["value"] if scope["type"] == "model" else None
+        if scope["type"] == "model":
+            series = None
+            model = scope["value"]
+        elif scope["type"] == "series":
+            series = scope["value"]
+            model = None
+        elif scope["type"] == "family":
+            series = scope["value"] + "%"
+            model = None
+        else:
+            series = None
+            model = None
 
-        engines = get_engines(conn, series=series, model=model, fuel=fuel)
+engines = get_engines(conn, series=series, model=model, fuel=fuel)
 
-        if not engines:
-            return {
-                "status": "error",
-                "message": f"No results found for: {query}",
-                "parsed": parsed
-            }
+if not engines:
+    return {
+        "status": "error",
+        "message": f"No results found for: {query}",
+        "parsed": parsed
+    }
 
         transmissions = get_transmissions(conn, series=series, model=model)
 

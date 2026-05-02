@@ -1,8 +1,8 @@
 import re
 
 INTENT_TO_SERIES = {
-    "suv":      "x_series",
-    "x":        "x_series",
+    "suv":      "x",
+    "x":        "x",
     "coupe":    "4_series",
     "sedan":    "3_series",
     "compact":  "1_series",
@@ -17,8 +17,7 @@ SERIES_ALIASES = {
     "6": "6_series",
     "7": "7_series",
     "8": "8_series",
-    "x": "x_series",
-    "m": "m_series",
+    "x": "x",
     "z": "z_series",
 }
 
@@ -44,7 +43,7 @@ def detect_scope(query, available_models, available_series):
 
     for letter in ["X", "M", "Z"]:
         if re.search(rf"\b{letter}\b", q):
-            return {"type": "series", "value": SERIES_ALIASES.get(letter.lower())}
+            return {"type": "family", "value": letter}
 
     return {"type": "all", "value": None}
 
