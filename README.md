@@ -7,7 +7,7 @@ Cars Data API is a backend project for querying BMW specifications such as model
 The project focuses on learning backend fundamentals by evolving from a simple script into a structured application with a layered architecture, query parsing, a relational database, and a REST API.
 
 Development path:  
-MVP → Layered Architecture → JSON Dataset → ETL → SQLite → PostgreSQL → REST API → Cloud Deploy → Frontend → Unit Tests
+MVP → Layered Architecture → JSON Dataset → ETL → SQLite → PostgreSQL → REST API → Cloud Deploy → Frontend → Unit Tests → CI/CD → Docker
 
 ---
 
@@ -20,7 +20,9 @@ MVP → Layered Architecture → JSON Dataset → ETL → SQLite → PostgreSQL 
 - Layered architecture: Parser/Service/Repository/API
 - Smart scope detection: model(F30), series(3_series), family(X→X1-X7), intent(suv, coupe, sedan)
 - Unit test suite (pytest) covering parser logic - 7/7 passing
-- Rule-based parsing using ragex (model, fuel type, intent)
+- GitHub Actions CI - unit tests run automatically on every push
+- Dockerfile and docker-compose for containerized deployment 
+- Rule-based parsing using regex (model, fuel type, intent)
 - Dynamic model and series detection based on database content
 - Filtering by:
   - model generation (E90, F30, G20, etc.)
@@ -78,7 +80,7 @@ pip install -r requirements.txt
 
 4. Run the API:
 ```
-uvicorn api:app --reload
+uvicorn main:app --reload
 ```
 
 5. Visit:
@@ -95,6 +97,10 @@ python app.py
 ```
 
 python -m pytest test.py
+```
+8. Run with Docker:
+```
+docker-compose up
 ```
 
 ---
@@ -132,9 +138,13 @@ carsdatabase.py ETL script for loading JSON data into PostgreSQL
 db.py           Database connection helper
 datacars.json   Source dataset
 app.py          CLI interface and output formatting
+Dockerfile      Container definition
 repository/
     cars_rep.py Repository layer — all SQL queries isolated here
 test.py         Unit tests for parser logic (pytest, 7/7)
+.github/
+    workflows/
+        tests.yml   GitHub Actions CI - runs tests on every push
 ```
 
 ---
@@ -149,6 +159,7 @@ pytest
 Uvicorn
 Render (cloud deployment)
 GitHub Pages (frontend hosting)
+GitHub Actions (CI/CD)
 JSON
 Regex (pattern-based parsing)
 ```
@@ -190,6 +201,8 @@ Data is loaded automatically on API startup:
 - Extracted Repository layer — SQL queries separated from business logic
 - Refactored parser into smart scope detection (model / series / family)
 - Added unit test suite (pytest, 7/7) running without database dependency
+- Added GitHub Actions CI - tests run automatically on every push
+- Added Dockerfile and docker-compose for containerized deployment
 - Added REST API using FastAPI
 - Added support for "best engine" logic with reasoning
 - Migrated to cloud: API on Render, database on Render PostgreSQL
@@ -202,7 +215,6 @@ Data is loaded automatically on API startup:
 
 - Parsing is rule-based and does not handle complex natural language
 - No fuzzy matching or typo handling
-- No logging or error tracking system
 
 ---
 
@@ -219,10 +231,9 @@ Data is loaded automatically on API startup:
 
 ## Status
 
-**Live** — API deployed on Render, frontend on GitHub Pages. Unit tested (pytest 7/7)  
+**Live** — API deployed on Render, frontend on GitHub Pages. Unit tested (pytest 7/7). CI/CD via GitHub Actions.  
 Next steps:
 - Integration tests hitting live API endpoints (pytest + requests)
 - Error logging to rotating file (Python logging module)
 - Error reporting — structured log file with timestamp, endpoint, query, error type
 - Frontend E2E tests (Playwright)
-- GitHub Actions CI — run unit tests on every push
