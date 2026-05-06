@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Query
-from service import ask
+from src.services.service import ask
 
 router = APIRouter()
 

@@ -1,9 +1,9 @@
-from db import get_conn
-from repository.cars_rep import (
+from src.core.db import get_conn
+from src.repository.cars_rep import (
     get_all_models, get_all_series,
     get_engines, get_transmissions, get_best_engines
 )
-from carparser import parse_query
+from src.parsers.carparser import parse_query
 
 def ask(query):
     conn = get_conn()

@@ -1,4 +1,4 @@
-from db import get_conn
+from src.core.db import get_conn
 
 def get_all_series(conn):
     cursor = conn.cursor()

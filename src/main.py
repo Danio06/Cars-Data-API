@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from api import router
-from carsdatabase import load_json_to_db
+from src.api.api import router
+from src.core.carsdatabase import load_json_to_db
 
 app = FastAPI(title="Cars Data API", version="3.0.0")
 

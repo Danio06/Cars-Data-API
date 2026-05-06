@@ -1,4 +1,4 @@
-from service import ask
+from src.services.service import ask
 
 def pretty_print(result):
     if result.get("status") == "error":

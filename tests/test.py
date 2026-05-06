@@ -1,4 +1,4 @@
-from carparser import parse_query
+from src.parsers.carparser import parse_query
 
 MODELS = ["E21", "E30", "E36", "E46", "E90", "F30", "G20",
           "E87", "F20", "F40", "E84"]
