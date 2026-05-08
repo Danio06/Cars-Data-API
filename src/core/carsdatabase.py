@@ -25,6 +25,16 @@ def load_json_to_db():
     cursor = conn.cursor()
 
     cursor.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id SERIAL PRIMARY KEY,
+            email TEXT UNIQUE NOT NULL,
+            hashed_password TEXT NOT NULL,
+            is_active BOOLEAN DEFAULT TRUE,
+            created_at TIMESTAMP DEFAULT NOW()
+        )
+    """)
+
+    cursor.execute("""
         CREATE TABLE IF NOT EXISTS engines (
             id SERIAL PRIMARY KEY,
             series TEXT,
