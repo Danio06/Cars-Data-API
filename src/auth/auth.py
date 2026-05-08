@@ -6,7 +6,7 @@ from src.auth.schemas import UserCreate, UserLogin, Token
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
-SECRET_KEY = "SECRET_KEY"
+SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
