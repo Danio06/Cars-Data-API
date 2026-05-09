@@ -43,6 +43,12 @@ MVP → Layered Architecture → JSON Dataset → ETL → SQLite → REST API �
 
 > Note: API is hosted on Render free tier — first request may take ~30s (cold start).
 
+## Frontend Preview
+
+Below is a preview of the working frontend connected to the API:
+
+![Cars Frontend](assets/assets/frontend-demo.gif)
+
 ---
 
 ## REST API (FastAPI)
