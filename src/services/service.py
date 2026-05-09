@@ -12,6 +12,12 @@ def ask(query):
         available_series = get_all_series(conn)
         parsed = parse_query(query, available_models, available_series)
 
+        if "error" in parsed:
+            return {
+                "status": "error",
+                "message": parsed["error"]
+            }
+
         scope = parsed["scope"]
         fuel = parsed["fuel"]
         intent = parsed["intent"]
