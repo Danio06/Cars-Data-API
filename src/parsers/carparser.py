@@ -68,9 +68,22 @@ def detect_intent(query):
     return "list"
 
 def parse_query(query, available_models, available_series):
+    scope = detect_scope(query, available_models, available_series)
+    fuel = detect_fuel(query)
+    intent = detect_intent(query)
+
+    has_scope = scope["type"] in ["model", "series", "family"]
+    has_global_intent = intent == "best" and fuel is not None
+
+    if not has_scope and not has_global_intent:
+        return {
+            "error": "Please select series or model",
+            "raw": query
+        }
+
     return {
-        "scope": detect_scope(query, available_models, available_series),
-        "fuel": detect_fuel(query),
-        "intent": detect_intent(query),
+        "scope": scope,
+        "fuel": fuel,
+        "intent": intent,
         "raw": query
     }

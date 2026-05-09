@@ -7,7 +7,7 @@ Cars Data API is a backend project for querying BMW specifications such as model
 The project focuses on learning backend fundamentals by evolving from a simple script into a structured application with a layered architecture, query parsing, a relational database, and a REST API.
 
 Development path:  
-MVP → Layered Architecture → JSON Dataset → ETL → SQLite → PostgreSQL → REST API → Cloud Deploy → Frontend → Unit Tests → CI/CD → Docker
+MVP → Layered Architecture → JSON Dataset → ETL → SQLite → REST API → Cloud Deploy → PostgreSQL → Frontend → Unit Tests → CI/CD → Docker
 
 ---
 
@@ -19,7 +19,8 @@ MVP → Layered Architecture → JSON Dataset → ETL → SQLite → PostgreSQL 
 - Interactive frontend hosted on GitHub Pages
 - Layered architecture: Parser/Service/Repository/API
 - Smart scope detection: model(F30), series(3_series), family(X→X1-X7), intent(suv, coupe, sedan)
-- Unit test suite (pytest) covering parser logic - 7/7 passing
+- Improved query parser with expanded test coverage (edge cases, empty input, unknown models, case handling)
+- Unit test suite (pytest) covering parser logic - 13/13 passing
 - GitHub Actions CI - unit tests run automatically on every push
 - Dockerfile and docker-compose for containerized deployment 
 - Rule-based parsing using regex (model, fuel type, intent)
@@ -88,17 +89,13 @@ uvicorn main:app --reload
 http://127.0.0.1:8000/docs
 ```
 
-6. (Optional) Run CLI version:
-```
-python app.py
-```
-7. Run unit tests:
+6. Run unit tests:
 
 ```
 
 python -m pytest test.py
 ```
-8. Run with Docker:
+7. Run with Docker:
 ```
 docker-compose up
 ```
@@ -130,21 +127,40 @@ Returns entire X-family
 ## Project Structure
 
 ```
-main.py         FastAPI entry point
-api.py          FastAPI REST API layer
-service.py      Business logic and orchestration
-carparser.py    Smart query parser (scope, fuel, intent detection)
-carsdatabase.py ETL script for loading JSON data into PostgreSQL
-db.py           Database connection helper
-datacars.json   Source dataset
-app.py          CLI interface and output formatting
-Dockerfile      Container definition
-repository/
-    cars_rep.py Repository layer — all SQL queries isolated here
-test.py         Unit tests for parser logic (pytest, 7/7)
-.github/
-    workflows/
-        tests.yml   GitHub Actions CI - runs tests on every push
+src/
+ ├── main.py              FastAPI entry point
+ ├── app.py               CLI interface
+ ├── cars.py              legacy/utility logic
+ │
+ ├── api/
+ │    └── api.py         REST endpoints
+ │
+ ├── core/
+ │    ├── db.py          DB connection
+ │    ├── carsdatabase.py ETL + schema init
+ │
+ ├── parsers/
+ │    └── carparser.py   Query parser (scope/fuel/intent)
+ │
+ ├── services/
+ │    └── service.py     business logic layer
+ │
+ ├── repository/
+ │    └── cars_rep.py    SQL abstraction layer
+ │
+ ├── auth/
+ │    ├── auth.py        JWT auth (register/login)
+ │    ├── schemas.py     Pydantic models
+ │
+data/
+ ├── datacars.json       source dataset
+ ├── cars.db             legacy sqlite
+
+tests/
+ ├── parser_test.py      pytest suite (13/13 passing)
+
+.github/workflows/
+ └── tests.yaml          CI pipeline
 ```
 
 ---
@@ -200,7 +216,7 @@ Data is loaded automatically on API startup:
 - Migrated from in-memory JSON to SQLite, then to PostgreSQL
 - Extracted Repository layer — SQL queries separated from business logic
 - Refactored parser into smart scope detection (model / series / family)
-- Added unit test suite (pytest, 7/7) running without database dependency
+- Added unit test suite (pytest, 13/13) running without database dependency
 - Added GitHub Actions CI - tests run automatically on every push
 - Added Dockerfile and docker-compose for containerized deployment
 - Added REST API using FastAPI
@@ -231,7 +247,7 @@ Data is loaded automatically on API startup:
 
 ## Status
 
-**Live** — API deployed on Render, frontend on GitHub Pages. Unit tested (pytest 7/7). CI/CD via GitHub Actions.  
+**Live** — API deployed on Render, frontend on GitHub Pages. Unit tested (pytest 13/13). CI/CD via GitHub Actions.  
 Next steps:
 - Integration tests hitting live API endpoints (pytest + requests)
 - Error logging to rotating file (Python logging module)

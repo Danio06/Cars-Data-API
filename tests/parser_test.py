@@ -40,3 +40,36 @@ def test_no_model():
 def test_fuel_hybrid():
     r = parse_query("F40 hybrid", MODELS, SERIES)
     assert r["fuel"] == "hybrid"
+
+def test_series_number_best():
+    r = parse_query("series 7 best", MODELS, SERIES)
+    assert r["scope"]["type"] == "series"
+    assert r["scope"]["value"] == "7_series"
+    assert r["intent"] == "best"
+
+def test_empty_input():
+    r= parse_query("", MODELS, SERIES)
+    assert "error" in r
+    assert r["error"] == "Please select series or model"
+
+def test_spaces_only():
+    r= parse_query("   ", MODELS, SERIES)
+    assert "error" in r
+    assert r["error"] == "Please select series or model"
+
+def test_unknown_model():
+    r= parse_query("c63 amg", MODELS, SERIES)
+    assert "error" in r
+    assert r["error"] == "Please select series or model"
+
+def test_lowercase_model():
+    r = parse_query("e90 petrol", MODELS, SERIES)
+    assert r["scope"]["type"] == "model"
+    assert r["scope"]["value"] == "E90"
+
+def test_mixed_case():
+    r = parse_query("bEsT f30 pETRol", MODELS, SERIES)
+    assert r["scope"]["type"] == "model"
+    assert r["scope"]["value"] == "F30"
+    assert r["intent"] == "best"
+    assert r["fuel"] == "petrol"
