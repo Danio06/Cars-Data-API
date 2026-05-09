@@ -47,7 +47,7 @@ MVP → Layered Architecture → JSON Dataset → ETL → SQLite → REST API �
 
 Below is a preview of the working frontend connected to the API:
 
-![Cars Frontend](assets/assets/frontend-demo.gif)
+![Cars Frontend](Assets/frontend-demo.gif)
 
 ---
 

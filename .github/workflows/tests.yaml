@@ -11,4 +11,4 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install pytest
-      - run: python -m pytest tests/test.py -v
+      - run: python -m pytest tests/parser_test.py -v
