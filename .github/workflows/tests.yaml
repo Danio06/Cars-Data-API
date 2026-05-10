@@ -5,12 +5,18 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-      - run: pip install pytest
+
+      - run: pip install -r requirements.txt
+
+      - run: playwright install
+
       - run: python -m pytest tests/parser_test.py -v
       - run: python -m pytest tests/integration_test.py -v
       - run: python -m pytest tests/playwright_test.py -v
