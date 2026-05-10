@@ -13,10 +13,21 @@ jobs:
         with:
           python-version: '3.11'
 
-      - run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-      - run: playwright install
+      - name: Install Playwright
+        run: |
+          pip install playwright
+          playwright install --with-deps
 
-      - run: python -m pytest tests/parser_test.py -v
-      - run: python -m pytest tests/integration_test.py -v
-      - run: python -m pytest tests/playwright_test.py -v
+      - name: Run integration tests
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: python -m pytest tests/integration_test.py -v
+
+      - name: Run parser tests
+        run: python -m pytest tests/parser_test.py -v
+
+      - name: Run playwright tests
+        run: python -m pytest tests/playwright_test.py -v
