@@ -7,7 +7,7 @@ Cars Data API is a backend project for querying BMW specifications such as model
 The project focuses on learning backend fundamentals by evolving from a simple script into a structured application with a layered architecture, query parsing, a relational database, and a REST API.
 
 Development path:  
-MVP → Layered Architecture → JSON Dataset → ETL → SQLite → REST API → Cloud Deploy → PostgreSQL → Frontend → Unit Tests → CI/CD → Docker
+MVP → Layered Architecture → JSON Dataset → ETL → SQLite → REST API → Cloud Deploy → PostgreSQL → Frontend → Unit Tests → CI/CD → Docker → Integration Tests → Playwright E2E
 
 ---
 
@@ -20,8 +20,6 @@ MVP → Layered Architecture → JSON Dataset → ETL → SQLite → REST API �
 - Layered architecture: Parser/Service/Repository/API
 - Smart scope detection: model(F30), series(3_series), family(X→X1-X7), intent(suv, coupe, sedan)
 - Improved query parser with expanded test coverage (edge cases, empty input, unknown models, case handling)
-- Unit test suite (pytest) covering parser logic - 13/13 passing
-- GitHub Actions CI - unit tests run automatically on every push
 - Dockerfile and docker-compose for containerized deployment 
 - Rule-based parsing using regex (model, fuel type, intent)
 - Dynamic model and series detection based on database content
@@ -32,6 +30,9 @@ MVP → Layered Architecture → JSON Dataset → ETL → SQLite → REST API �
 - Support for multiple generations in a single query
 - "Best engine" query support with reasoning
 - Data seeding on API startup (JSON → PostgreSQL)
+- Integration test suite for API endpoints (pytest + FastAPI TestClient)
+- End-to-end frontend testing using Playwright against deployed GitHub Pages frontend
+- Automated CI pipeline running parser, integration, and Playwright tests on every push
 
 ---
 
@@ -99,7 +100,7 @@ http://127.0.0.1:8000/docs
 
 ```
 
-python -m pytest test.py
+python -m pytest
 ```
 7. Run with Docker:
 ```
@@ -139,31 +140,33 @@ src/
  ├── cars.py              legacy/utility logic
  │
  ├── api/
- │    └── api.py         REST endpoints
+ │    └── api.py          REST endpoints
  │
  ├── core/
- │    ├── db.py          DB connection
+ │    ├── db.py           DB connection
  │    ├── carsdatabase.py ETL + schema init
  │
  ├── parsers/
- │    └── carparser.py   Query parser (scope/fuel/intent)
+ │    └── carparser.py    Query parser (scope/fuel/intent)
  │
  ├── services/
- │    └── service.py     business logic layer
+ │    └── service.py      business logic layer
  │
  ├── repository/
- │    └── cars_rep.py    SQL abstraction layer
+ │    └── cars_rep.py     SQL abstraction layer
  │
  ├── auth/
- │    ├── auth.py        JWT auth (register/login)
- │    ├── schemas.py     Pydantic models
+ │    ├── auth.py         JWT auth (register/login)
+ │    ├── schemas.py      Pydantic models
  │
 data/
- ├── datacars.json       source dataset
- ├── cars.db             legacy sqlite
+ ├── datacars.json        source dataset
+ ├── cars.db              legacy sqlite
 
 tests/
- ├── parser_test.py      pytest suite (13/13 passing)
+ ├── parser_test.py       pytest suite
+ ├── integration_test.py  API integration tests
+ ├── playwright_test.py   Frontend E2E tests (Playwright)
 
 .github/workflows/
  └── tests.yaml          CI pipeline
@@ -181,9 +184,10 @@ pytest
 Uvicorn
 Render (cloud deployment)
 GitHub Pages (frontend hosting)
-GitHub Actions (CI/CD)
+GitHub Actions (CI)
 JSON
 Regex (pattern-based parsing)
+Playwright
 ```
 
 ---
@@ -230,6 +234,9 @@ Data is loaded automatically on API startup:
 - Migrated to cloud: API on Render, database on Render PostgreSQL
 - Built frontend (HTML/CSS/JS) hosted on GitHub Pages
 - Implemented idempotent database seeding on startup
+- Added integration tests for API endpoints using FastAPI TestClient
+- Added end-to-end frontend testing using Playwright
+- CI pipeline now validates backend parser logic, API integration, and frontend behavior
 
 ---
 
@@ -237,6 +244,7 @@ Data is loaded automatically on API startup:
 
 - Parsing is rule-based and does not handle complex natural language
 - No fuzzy matching or typo handling
+- Frontend end-to-end tests (Playwright)
 
 ---
 
@@ -253,9 +261,15 @@ Data is loaded automatically on API startup:
 
 ## Status
 
-**Live** — API deployed on Render, frontend on GitHub Pages. Unit tested (pytest 13/13). CI/CD via GitHub Actions.  
+**Live** — API deployed on Render, frontend on GitHub Pages.
+Test coverage includes:
+- Parser unit tests
+- API integration tests
+- Frontend end-to-end tests (Playwright)
+
+CI/CD via GitHub Actions with automated test execution on every push.
+
 Next steps:
-- Integration tests hitting live API endpoints (pytest + requests)
+- Add Authentication
 - Error logging to rotating file (Python logging module)
 - Error reporting — structured log file with timestamp, endpoint, query, error type
-- Frontend E2E tests (Playwright)
