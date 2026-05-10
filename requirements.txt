@@ -13,3 +13,4 @@ typing_extensions==4.15.0
 uvicorn==0.46.0
 pytest==9.0.3
 requests==2.33.1
+httpx==0.28.1
